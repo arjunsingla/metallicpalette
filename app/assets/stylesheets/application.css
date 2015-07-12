@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+
+img {
+	width: 100%;
+}
+
+#carousel-example-generic {
+	width: 100%;
+	text-align: left;
+}
+
+.col-md-3 {
+	margin-left: 0px;
+}
+
+.row {
+	margin-left: 1px;
+}
+
+.container-fluid .row .col-md-3 img {
+	width: 115%;
+}
+
+.carousel-inner .item .carousel-caption {
+	font-size: 20px
+}
