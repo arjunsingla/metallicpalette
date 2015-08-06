@@ -18,23 +18,38 @@ img {
 	width: 100%;
 }
 
-#carousel-example-generic {
-	width: 100%;
-	text-align: left;
-}
+/* Carousel Start */
 
-.col-md-3 {
-	margin-left: 0px;
-}
-
-.row {
-	margin-left: 1px;
-}
-
-.container-fluid .row .col-md-3 img {
-	width: 115%;
+.navbar {
+	margin-bottom: 0px;
+	border-radius: 0px;
 }
 
 .carousel-inner .item .carousel-caption {
-	font-size: 20px
+	font-size: 120%;
 }
+
+.carousel-control.left, .carousel-control.right {
+   background-image:none !important;
+   filter:none !important;
+}
+
+/* Carousel End */
+
+
+/* Row Below Start */
+
+.container-fluid .row .col-md-3 {
+	background-color: #bdc3c7;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #ecf0f1;
+}
+
+.container-fluid .row .col-md-3 img {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+/* Row Below End */
+
