@@ -19,36 +19,15 @@ img {
 	width: 100%;
 }
 
-h1 {
-	margin: 20px;
-	margin-bottom: -50px;
-	font-size: 50px;
-}
-
 .alert {
 	margin-bottom: 0px;
 }
 
-/* Panel Start */
-
 .panel {
-	width: 20%;
-	margin: 10px;
+	width: 84%;
+	margin-left: 8%;
+	margin-top: 30px;
 }
-.panel-body {
-	padding: 5px;
-}
-
-.panel-heading {
-	text-align: center;
-}
-
-.panel-footer {
-	text-align: center;
-}
-
-/* Panel End */
-
 
 /* Carousel Start */
 
@@ -83,9 +62,6 @@ h1 {
 	margin-bottom: 8px;
 }
 
-.panel {
-	margin-top: 100px;
-}
 
 /* Row Below End */
 
