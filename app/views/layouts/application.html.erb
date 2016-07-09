@@ -6,11 +6,22 @@
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	  <%= csrf_meta_tags %>
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <link rel="shortcut icon" type="image/x-icon" href="https://s3.amazonaws.com/metallicpalette/favicon.ico">
 	</head>
 	<body>
 
-	<%= render 'layouts/header' %>
-	<%= yield %>
+		<%= render 'layouts/header' %>
+	
+		<div class "container">
+			<% flash.each do |name, msg| %>
+		  		<div class="alert alert-info alert-dismissible" role="alert">
+  					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  			<%= content_tag(:div, msg, class: "container1") %>
+				</div>
+			<% end %>
 
+			<%= yield %>
+		</div>
+		
 	</body>
 </html>
