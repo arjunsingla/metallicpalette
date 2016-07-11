@@ -1,6 +1,7 @@
 class PiecesController < ApplicationController
   before_action :set_piece, only: [:show, :edit, :update, :destroy]
-
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
   respond_to :html
 
   def index
@@ -13,7 +14,7 @@ class PiecesController < ApplicationController
   end
 
   def new
-    @piece = Piece.new
+    @piece = current_user.pieces.build
     respond_with(@piece)
   end
 
@@ -21,7 +22,7 @@ class PiecesController < ApplicationController
   end
 
   def create
-    @piece = Piece.new(piece_params)
+    @piece = current_user.pieces.build(piece_params)
     @piece.save
     respond_with(@piece)
   end
@@ -39,6 +40,11 @@ class PiecesController < ApplicationController
   private
     def set_piece
       @piece = Piece.find(params[:id])
+    end
+
+    def correct_user
+      @piece = current_user.pieces.find_by(id: params[:id])
+      redirect_to pieces_path, notice: "Not authorized to edit this piece" if @piece.nil?
     end
 
     def piece_params

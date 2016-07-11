@@ -30,5 +30,7 @@
   <%= @piece.status %>
 </p>
 
-<%= link_to 'Edit', edit_piece_path(@piece) %> |
+<% if @piece.user == current_user || (user_signed_in? && current_user.id == 1) %>
+  <%= link_to 'Edit', edit_piece_path(@piece) %> |
+<% end %>
 <%= link_to 'Back', pieces_path %>
