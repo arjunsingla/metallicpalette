@@ -14,6 +14,11 @@
  *= require_self
  */
 
+.container2 {
+	margin-left: 4%;
+	margin-right: 4%;
+}
+
 
 img {
 	width: 100%;

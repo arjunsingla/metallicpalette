@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :pieces
+
   devise_for :users
   root 'pages#home'
   get 'products' => 'pages#products' # Creates product_path
