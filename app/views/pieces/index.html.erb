@@ -4,6 +4,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Title</th>
       <th>Genre</th>
       <th>Size</th>
@@ -18,6 +19,7 @@
   <tbody>
     <% @pieces.each do |piece| %>
       <tr>
+        <td><%= image_tag piece.image.url(:medium) %></td>
         <td><%= piece.title %></td>
         <td><%= piece.genre %></td>
         <td><%= piece.size %></td>
