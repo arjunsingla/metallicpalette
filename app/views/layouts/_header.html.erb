@@ -33,6 +33,10 @@
       <li><a href="#">Link</a></li>
 
       <% if user_signed_in? %>
+        <li><%= link_to new_piece_path do  %>
+          <span class="glyphicon glyphicon-plus"></span> New Pin
+        <% end %></li>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Logged in as <%= current_user.email %> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">

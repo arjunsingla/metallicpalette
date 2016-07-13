@@ -44,7 +44,7 @@ class PiecesController < ApplicationController
 
     def correct_user
       @piece = current_user.pieces.find_by(id: params[:id])
-      redirect_to pieces_path, notice: "Not authorized to edit this piece" if @piece.nil?
+      redirect_to pieces_path, notice: "Access Denied! Not authorized to edit this piece." if @piece.nil?
     end
 
     def piece_params
