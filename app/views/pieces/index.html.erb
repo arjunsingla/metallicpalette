@@ -1,25 +1,33 @@
-<h1>Listing Pieces</h1>
+<div class="container2">
 
-<div id="pieces" class="transitions-enabled">
-  <% @pieces.each do |piece| %>
-    <div class="box panel panel-default">
-      <%= image_tag piece.image.url(:medium) %>
-      <div class="panel-body">
-        <%= piece.title %>
-        <%= piece.genre %>
-        <%= piece.size %>
-        <%= piece.price %>
-        <%= piece.description %>
-        <%= piece.user.email if piece.user %>
-        <%= piece.status %>
+  <h1>Listing Pieces</h1>
+
+  <div id="pieces" class="transitions-enabled">
+    <% @pieces.each do |piece| %>
+      <div class="box panel panel-default">
+        <%= link_to image_tag(piece.image.url(:medium)), piece %>
+
+        <div class="panel-body">
+          <%= piece.title %><br/>
+          <%= piece.genre %><br/>
+          <%= piece.size %><br/>
+          $<%= piece.price %><br/>
+         <strong><%= piece.user.email if piece.user %></strong><br/>
+          <%= piece.status if (user_signed_in? && current_user.id == 1) %>
+        </div>
+        <div class="panel-footer">
+          <% if piece.user == current_user || (user_signed_in? && current_user.id == 1) %>
+             <div class="actions">
+              <%= link_to edit_piece_path(piece) do %>
+                  <span class="glyphicon glyphicon-pencil"></span> Edit 
+                <% end %>
+              <%= link_to piece, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <span class="glyphicon glyphicon-trash"></span> Delete 
+                <% end %>
+            </div>
+          <% end %>
+         </div>
       </div>
-      <div class="panel-footer">
-        <%= link_to 'Show', piece %>
-        <% if piece.user == current_user || (user_signed_in? && current_user.id == 1) %>
-          <%= link_to 'Edit', edit_piece_path(piece) %>
-          <%= link_to 'Destroy', piece, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

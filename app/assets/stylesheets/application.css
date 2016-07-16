@@ -15,9 +15,12 @@
  *= require_self
  */
 
+.center {
+	text-align: center;
+}
+
 .container2 {
-	margin-left: 4%;
-	margin-right: 4%;
+	
 }
 
 
@@ -25,7 +28,7 @@
 	width: 100%;
 }
 
-.row img {
+.row .col-md-3 img {
 	width: 100%;
 }
 

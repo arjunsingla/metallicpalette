@@ -1,37 +1,36 @@
-<%= image_tag @piece.image.url(:medium) %>
-
-<p>
-  <strong>Title:</strong>
-  <%= @piece.title %>
-</p>
-
-
-<p>
-  <strong>Genre:</strong>
-  <%= @piece.genre %>
-</p>
-
-<p>
-  <strong>Size:</strong>
-  <%= @piece.size %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @piece.price %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @piece.description %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @piece.status %>
-</p>
-
-<% if @piece.user == current_user || (user_signed_in? && current_user.id == 1) %>
-  <%= link_to 'Edit', edit_piece_path(@piece) %> |
-<% end %>
 <%= link_to 'Back', pieces_path %>
+
+<div class="row">
+  <div class="col-md-offset-4 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+        <%= image_tag @piece.image.url(:medium) %>
+      </div>
+      <div class="panel-body">
+        <p><%= @piece.title %></p>
+
+        <p><%= @piece.genre %></p>
+
+        <p><%= @piece.size %></p>
+
+        <p><%= @piece.price %></p>
+
+        <p><%= @piece.description %></p>
+
+        <p><%= @piece.status %></p>
+
+        <p><strong><%= @piece.user.email if @piece.user %></strong><p>
+        <p><%= @piece.status if (user_signed_in? && current_user.id == 1) %></p>
+
+        <% if @piece.user == current_user || (user_signed_in? && current_user.id == 1) %>
+          <%= link_to edit_piece_path(@piece) do %>
+            <span class="glyphicon glyphicon-pencil"></span> Edit 
+          <% end %>
+          <%= link_to @piece, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-trash"></span> Delete 
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
