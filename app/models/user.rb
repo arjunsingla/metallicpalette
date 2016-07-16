@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-   has_many :pieces
+   has_many :pieces, dependent: :destroy
 
    validates :name, presence: true
    validates :address_line_1, presence: true
