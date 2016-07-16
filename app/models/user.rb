@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
    has_many :pieces
 
+   validates :name, presence: true
+   validates :address_line_1, presence: true
+   validates :address_line_2, presence: true
+
 end

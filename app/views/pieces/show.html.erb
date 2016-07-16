@@ -19,7 +19,7 @@
 
         <p><%= @piece.status %></p>
 
-        <p><strong><%= @piece.user.email if @piece.user %></strong><p>
+        <p><strong><%= @piece.user.name if @piece.user %></strong><p>
         <p><%= @piece.status if (user_signed_in? && current_user.id == 1) %></p>
 
         <% if @piece.user == current_user || (user_signed_in? && current_user.id == 1) %>
