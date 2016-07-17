@@ -23,17 +23,17 @@ class PiecesController < ApplicationController
 
   def create
     @piece = current_user.pieces.build(piece_params)
-    @piece.save
+    flash[:notice] = 'Piece was successfully created.' if @piece.save
     respond_with(@piece)
   end
 
   def update
-    @piece.update(piece_params)
+    flash[:notice] = 'Piece was successfully updated.' if @piece.update(piece_params)
     respond_with(@piece)
   end
 
   def destroy
-    @piece.destroy
+    flash[:notice] = 'Piece was successfully deleted.' if @piece.destroy
     respond_with(@piece)
   end
 
