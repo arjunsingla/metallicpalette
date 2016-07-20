@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :pieces
+  resources :pieces do
+    collection do
+      get 'requests'
+    end
+  end
 
   devise_for :users
   root 'pages#home'

@@ -1,4 +1,5 @@
-<%= link_to 'Back', pieces_path %>
+<br/><%= link_to 'Back', pieces_path %><br/>
+<%= link_to 'Requests', requests_pieces_path if user_signed_in? and current_user.email == "arjun0999@gmail.com" %>
 
 <div class="row">
   <div class="col-md-offset-4 col-md-8">
@@ -17,12 +18,16 @@
 
         <p><%= @piece.description %></p>
 
-        <p><%= @piece.status %></p>
-
         <p><strong><%= @piece.user.name if @piece.user %></strong><p>
-        <p><%= @piece.status if (user_signed_in? && current_user.id == 1) %></p>
+        
+        <% if user_signed_in? && current_user.email == "arjun0999@gmail.com" %>
+          <p> Status: <%= @piece.status %></p>
+        <% end %>
 
-        <% if current_user && (@piece.user == current_user || (user_signed_in? && current_user.id == 1)) %>
+        <% if current_user && (@piece.user == current_user || (user_signed_in? && current_user.email == "arjun0999@gmail.com")) %>
+           <% if @piece.status != 1 %>
+              <p>This piece is not yet authorized.</p>
+            <% end %>
           <%= link_to edit_piece_path(@piece) do %>
             <span class="glyphicon glyphicon-pencil"></span> Edit 
           <% end %>

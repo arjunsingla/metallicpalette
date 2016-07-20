@@ -1,0 +1,39 @@
+<div class="container2">
+
+  <h1>Requests</h1>
+
+	<div id="pieces" class="transitions-enabled">
+	   <% @pieces.each do |piece| %>
+	      <% if piece.status != 1 %>
+	        	<div class="box panel panel-default">
+	         	<%= link_to image_tag(piece.image.url(:medium)), piece %>
+
+		         <div class="panel-body">
+		           	<%= piece.title %><br/>
+		            <%= piece.genre %><br/>
+		            <%= piece.size %><br/>
+		            $<%= piece.price %><br/>
+		           <strong><%= piece.user.name if piece.user %></strong><br/>
+						<% if user_signed_in? && current_user.email == "arjun0999@gmail.com" %>
+			         	<p> Status: <%= piece.status %></p>
+			        	<% end %>		        
+			      </div>
+		         <div class="panel-footer">
+			         <% if piece.status != 1 %>
+			            <p>This piece is not yet authorized.</p>
+			         <% end %>
+
+			         <div class="actions">
+			            <%= link_to edit_piece_path(piece) do %>
+			               <span class="glyphicon glyphicon-pencil"></span> Edit 
+			            <% end %>
+			            <%= link_to piece, method: :delete, data: { confirm: 'Are you sure?' } do %>
+			               <span class="glyphicon glyphicon-trash"></span> Delete 
+			            <% end %>
+			         </div>
+			      </div>
+	        	</div>
+	      <% end %>
+	   <% end %>
+	</div>
+</div>

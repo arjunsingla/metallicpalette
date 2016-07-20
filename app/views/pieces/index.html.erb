@@ -4,30 +4,38 @@
 
   <div id="pieces" class="transitions-enabled">
     <% @pieces.each do |piece| %>
-      <div class="box panel panel-default">
-        <%= link_to image_tag(piece.image.url(:medium)), piece %>
+      <% if piece.status == 1 or (current_user and (current_user.email == "arjun0999@gmail.com" or piece.user == current_user))  %>
+        <div class="box panel panel-default">
+          <%= link_to image_tag(piece.image.url(:medium)), piece %>
 
-        <div class="panel-body">
-          <%= piece.title %><br/>
-          <%= piece.genre %><br/>
-          <%= piece.size %><br/>
-          $<%= piece.price %><br/>
-         <strong><%= piece.user.name if piece.user %></strong><br/>
-          <%= piece.status if (user_signed_in? && current_user.id == 1) %>
+          <div class="panel-body">
+            <%= piece.title %><br/>
+            <%= piece.genre %><br/>
+            <%= piece.size %><br/>
+            $<%= piece.price %><br/>
+           <strong><%= piece.user.name if piece.user %></strong><br/>
+            <% if user_signed_in? && current_user.email == "arjun0999@gmail.com" %>
+              <p> Status: <%= piece.status %></p>
+            <% end %>
+          </div>
+          <div class="panel-footer">
+            <% if current_user && (piece.user == current_user || (user_signed_in? && current_user.email == "arjun0999@gmail.com")) %>
+              <% if piece.status != 1 %>
+                <p>This piece is not yet authorized.</p>
+              <% end %>
+
+              <div class="actions">
+                <%= link_to edit_piece_path(piece) do %>
+                    <span class="glyphicon glyphicon-pencil"></span> Edit 
+                  <% end %>
+                <%= link_to piece, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                    <span class="glyphicon glyphicon-trash"></span> Delete 
+                  <% end %>
+              </div>
+            <% end %>
+           </div>
         </div>
-        <div class="panel-footer">
-          <% if current_user && (piece.user == current_user || (user_signed_in? && current_user.id == 1)) %>
-             <div class="actions">
-              <%= link_to edit_piece_path(piece) do %>
-                  <span class="glyphicon glyphicon-pencil"></span> Edit 
-                <% end %>
-              <%= link_to piece, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                  <span class="glyphicon glyphicon-trash"></span> Delete 
-                <% end %>
-            </div>
-          <% end %>
-         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
