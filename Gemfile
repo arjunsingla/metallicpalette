@@ -21,6 +21,9 @@ gem 'bootstrap-sass'
 # Use stripe for e-comerce payments
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
+# Use figaro gem for securly managing credentials
+gem 'figaro'
+
 gem 'devise'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
