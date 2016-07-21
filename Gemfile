@@ -18,6 +18,9 @@ gem 'rails_12factor', group: :production
 # Use bootstrap for improving the look and feel
 gem 'bootstrap-sass'
 
+# Use stripe for e-comerce payments
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 gem 'devise'
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
