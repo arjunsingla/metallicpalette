@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'pages#home'
 
+  #Support stripe payments through charges
+  resources :charges
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
