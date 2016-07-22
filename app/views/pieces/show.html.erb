@@ -23,8 +23,11 @@
         <% if user_signed_in? && current_user.email == "arjun0999@gmail.com" %>
           <p> Status: <%= @piece.status %></p>
         <% end %>
-
+        
         <% if current_user != @piece.user %>
+
+          <a id="btn-buy" href="receipt.html" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span> Buy for $<%= @piece.price %></a>
+
           <%= form_tag charges_path do %>
             <article>
               <% if flash[:error].present? %>
