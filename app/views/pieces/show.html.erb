@@ -33,7 +33,9 @@
            <%= form_tag charges_path, id: 'chargeForm' do %>
                 <script src="https://checkout.stripe.com/checkout.js"></script>
                 <%= hidden_field_tag 'stripeToken' %>
-                <%= hidden_field_tag 'stripeEmail' %>  
+                <%= hidden_field_tag 'stripeEmail' %>
+                <%= hidden_field_tag 'amount', 499 %>  <!-- 100*@piece.price -->
+ 
                 <button id="btn-buy-show" type="button" class="btn btn-success btn-lg btn-block">Buy for $<%= number_with_precision @piece.price, :precision => 2%></button>
                 <script>
                 var handler = StripeCheckout.configure({
@@ -48,7 +50,7 @@
                   handler.open({
                     name: 'Metallic Palette',
                     description: '<%= @piece.title %> ($<%= number_with_precision(@piece.price, :precision => 2)%>)',
-                    amount: (<%= number_with_precision(@piece.price, :precision => 2)%>)*100
+                    amount: document.getElementById("amount").value
                 });
                 e.preventDefault();
                })
