@@ -47,8 +47,8 @@
                  document.getElementById('btn-buy-show').addEventListener('click', function(e) {
                   handler.open({
                     name: 'Metallic Palette',
-                    description: '<%= @piece.title %> ($<%= @piece.price %>)',
-                    amount: <%= @piece.price %> * 100
+                    description: '<%= @piece.title %> ($<%= number_with_precision(@piece.price, :precision => 2)%>)',
+                    amount: (<%= number_with_precision(@piece.price, :precision => 2)%>)*100
                 });
                 e.preventDefault();
                })
