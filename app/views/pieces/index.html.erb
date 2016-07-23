@@ -12,11 +12,15 @@
             <%= piece.title %><br/>
             <%= piece.genre %><br/>
             <%= piece.size %><br/>
-            $<%= piece.price %><br/>
-           <strong><%= piece.user.name if piece.user %></strong><br/>
+            <div class ="green">
+              $<%= number_with_precision piece.price, :precision => 2%>
+            </div>      
+            <strong><%= piece.user.name if piece.user %></strong><br/>
             <% if user_signed_in? && current_user.email == "arjun0999@gmail.com" %>
               <p> Status: <%= piece.status %></p>
             <% end %>
+
+
           </div>
           <div class="panel-footer">
             <% if current_user && (piece.user == current_user || (user_signed_in? && current_user.email == "arjun0999@gmail.com")) %>

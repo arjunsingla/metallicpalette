@@ -15,9 +15,16 @@
  *= require_self
  */
 
-#btn-buy {
-	border-radius: 3px;	
+/* Buy Button Start */
+
+#btn-buy-show {
+	border-radius: 3px;
 }
+
+.green {
+	color: #5cb85c;
+}
+/* Buy End Start */
 
 .center {
 	text-align: center;
@@ -28,14 +35,6 @@
 	padding-right: -100%;
 }
 
-
-.carousel-inner img {
-	width: 100%;
-}
-
-.row .col-md-3 img {
-	width: 100%;
-}
 
 .alert {
 	margin-bottom: 0px;
@@ -58,6 +57,10 @@
 	font-size: 120%;
 }
 
+.carousel-inner img {
+	width: 100%;
+}
+
 .carousel-control.left, .carousel-control.right {
    background-image:none !important;
    filter:none !important;
@@ -78,6 +81,7 @@
 .container-fluid .row .col-md-3 img {
 	margin-top: 8px;
 	margin-bottom: 8px;
+	width: 100%;
 }
 
 

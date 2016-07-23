@@ -41,6 +41,8 @@ class PiecesController < ApplicationController
     if @piece.save
       flash[:notice] = 'Piece was successfully updated.'
       respond_with(@piece)
+    else
+      render :edit
     end
   end
 
