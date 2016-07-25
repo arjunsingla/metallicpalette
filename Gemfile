@@ -32,6 +32,9 @@ gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
 gem 'masonry-rails', '~> 0.2.0'
 
+#Add activeadmin to create an administrator interface
+gem 'activeadmin', github: 'gregbell/active_admin'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
