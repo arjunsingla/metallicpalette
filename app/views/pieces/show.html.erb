@@ -1,5 +1,5 @@
 <br/><%= link_to 'Back', pieces_path %><br/>
-<%= link_to 'Requests', requests_pieces_path if user_signed_in? and current_user.email == "arjun0999@gmail.com" %>
+<%= link_to 'Requests', requests_pieces_path if admin_user_signed_in? %>
 
 <div class="row">
   <div class="col-md-offset-4 col-md-8">
@@ -24,7 +24,7 @@
 
         <p><strong><%= @piece.user.name if @piece.user %></strong><p>
         
-        <% if user_signed_in? && current_user.email == "arjun0999@gmail.com" %>
+        <% if admin_user_signed_in? %>
             <p> Status: <%= @piece.status %></p>
         <% end %>
         
@@ -59,7 +59,7 @@
         <% end %>
 
 
-        <% if current_user && (@piece.user == current_user || (user_signed_in? && current_user.email == "arjun0999@gmail.com")) %>
+        <% if (current_user && @piece.user == current_user) || admin_user_signed_in? %>
            <% if @piece.status != 1 %>
               <p>This piece is not yet authorized.</p>
             <% end %>

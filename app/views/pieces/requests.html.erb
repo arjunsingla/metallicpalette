@@ -14,7 +14,7 @@
 		            <%= piece.size %><br/>
 		            $<%= piece.price %><br/>
 		           <strong><%= piece.user.name if piece.user %></strong><br/>
-						<% if user_signed_in? && current_user.email == "arjun0999@gmail.com" %>
+						<% if admin_user_signed_in? %>
 			         	<p> Status: <%= piece.status %></p>
 			        	<% end %>		        
 			      </div>

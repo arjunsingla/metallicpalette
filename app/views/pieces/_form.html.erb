@@ -39,7 +39,7 @@
     <%= f.text_field :description, class: "form-control" %>
   </div>
   
-  <% if user_signed_in? and current_user.email == "arjun0999@gmail.com" %>
+  <% if admin_user_signed_in? %>
     <div class="form-group">
       <%= f.label :status %><br>
       <%= f.number_field :status, class: "form-control" %>

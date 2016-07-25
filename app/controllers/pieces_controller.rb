@@ -1,7 +1,8 @@
 class PiecesController < ApplicationController
   before_action :set_piece, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :admin_or_user, only: [:edit, :update, :destroy]
   before_action :piece_ready_to_show, only: [:show]
   before_action :can_see_requests, only: [:requests]
   respond_to :html
@@ -30,14 +31,14 @@ class PiecesController < ApplicationController
 
   def create
     @piece = current_user.pieces.build(piece_params)
-    @piece.status = 2 if current_user.email != "arjun0999@gmail.com"
+    @piece.status = 2
     flash[:notice] = 'Piece was successfully created.' if @piece.save
     respond_with(@piece)
   end
 
   def update
     @piece.attributes = piece_params
-    @piece.status = 2 if current_user.email != "arjun0999@gmail.com"
+    @piece.status = 2 if !admin_user_signed_in?
     if @piece.save
       flash[:notice] = 'Piece was successfully updated.'
       respond_with(@piece)
@@ -57,27 +58,31 @@ class PiecesController < ApplicationController
     end
 
     def correct_user
-      @piece = current_user.pieces.find_by(id: params[:id])
-      redirect_to pieces_path, notice: "Access Denied! Not authorized to edit this piece." and return if @piece.nil? and current_user.email != "arjun0999@gmail.com"
-      @piece = Piece.find(params[:id]) if current_user.email == "arjun0999@gmail.com"
+      if user_signed_in?
+        @piece = current_user.pieces.find_by(id: params[:id])
+        redirect_to pieces_path, notice: "Access Denied! Not authorized to edit this piece." and return if @piece.nil?
+      end
+      if admin_user_signed_in?
+        @piece = Piece.find(params[:id])
+      end
     end
 
     def piece_ready_to_show
       if @piece.status != 1
-        if user_signed_in?
-          return if current_user.email == "arjun0999@gmail.com"
-          return if @piece.user == current_user  
-          redirect_to pieces_path, notice: "This piece is not ready to be shown."
-
-        else
-          redirect_to pieces_path, notice: "This piece is not ready to be shown."
-        end
+        return if user_signed_in? and @piece.user == current_user
+        return if admin_user_signed_in?
+        redirect_to pieces_path, notice: "This piece is not ready to be shown."
       end   
     end
 
     def can_see_requests
-      return if user_signed_in? and current_user.email == "arjun0999@gmail.com"
+      return if admin_user_signed_in?
       redirect_to pieces_path, notice: "Access Denied. Admin only." 
+    end
+
+    def admin_or_user
+      return if admin_user_signed_in?
+      authenticate_user!
     end
 
     def piece_params

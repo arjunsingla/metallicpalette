@@ -4,7 +4,7 @@
 
   <div id="pieces" class="transitions-enabled">
     <% @pieces.each do |piece| %>
-      <% if piece.status == 1 or (current_user and (current_user.email == "arjun0999@gmail.com" or piece.user == current_user))  %>
+      <% if piece.status == 1 or (admin_user_signed_in? or (current_user && piece.user == current_user))  %>
         <div class="box panel panel-default">
           <%= link_to image_tag(piece.image.url(:medium)), piece %>
 
@@ -16,14 +16,14 @@
               $<%= number_with_precision piece.price, :precision => 2%>
             </div>      
             <strong><%= piece.user.name if piece.user %></strong><br/>
-            <% if user_signed_in? && current_user.email == "arjun0999@gmail.com" %>
+            <% if admin_user_signed_in? %>
               <p> Status: <%= piece.status %></p>
             <% end %>
 
 
           </div>
           <div class="panel-footer">
-            <% if current_user && (piece.user == current_user || (user_signed_in? && current_user.email == "arjun0999@gmail.com")) %>
+            <% if (current_user && piece.user == current_user) or admin_user_signed_in? %>
               <% if piece.status != 1 %>
                 <p>This piece is not yet authorized.</p>
               <% end %>
