@@ -11,4 +11,8 @@ class Piece < ActiveRecord::Base
 	validates :price, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }, numericality: { greater_than: 0, less_than: 1000000 }
 	validates :description, presence: true
 
+	def price_in_cents
+		(self.price * 100).to_i
+	end
+
 end

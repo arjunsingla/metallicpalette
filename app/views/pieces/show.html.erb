@@ -34,15 +34,31 @@
                 <script src="https://checkout.stripe.com/checkout.js"></script>
                 <%= hidden_field_tag 'stripeToken' %>
                 <%= hidden_field_tag 'stripeEmail' %>
-                <%= hidden_field_tag 'amount', 499 %>  <!-- 100*@piece.price -->
+                <%= hidden_field_tag 'stripeShippingName' %>
+                <%= hidden_field_tag 'stripeShippingAddressLine1' %>
+                <%= hidden_field_tag 'stripeShippingAddressApt' %>
+                <%= hidden_field_tag 'stripeShippingAddressZip' %>
+                <%= hidden_field_tag 'stripeShippingAddressCity' %>
+                <%= hidden_field_tag 'stripeShippingAddressState' %>
+                <%= hidden_field_tag 'stripeShippingAddressCountry' %>
+                <%= hidden_field_tag 'piece_id', @piece.id %>
+                <%= hidden_field_tag 'amount', @piece.price_in_cents %> 
  
                 <button id="btn-buy-show" type="button" class="btn btn-success btn-lg btn-block">Buy for $<%= number_with_precision @piece.price, :precision => 2%></button>
                 <script>
                 var handler = StripeCheckout.configure({
                   key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+                  shippingAddress: true,
                   token: function(token, arg) {
                     document.getElementById("stripeToken").value = token.id;
                     document.getElementById("stripeEmail").value = token.email;
+                    document.getElementById("stripeShippingName").value = arg.shipping_name;
+                    document.getElementById("stripeShippingAddressLine1").value = arg.shipping_address_line1;
+                    document.getElementById("stripeShippingAddressApt").value = arg.shipping_address_apt;
+                    document.getElementById("stripeShippingAddressZip").value = arg.shipping_address_zip;
+                    document.getElementById("stripeShippingAddressCity").value = arg.shipping_address_city;
+                    document.getElementById("stripeShippingAddressState").value = arg.shipping_address_state;
+                    document.getElementById("stripeShippingAddressCountry").value = arg.shipping_address_country;
                     document.getElementById("chargeForm").submit();
                   }
                 });

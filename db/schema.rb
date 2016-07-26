@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725040308) do
+ActiveRecord::Schema.define(version: 20160726165852) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 20160725040308) do
     t.string   "currency"
     t.string   "customer_id"
     t.string   "customer_address_line_1"
-    t.string   "customer_address_line_2"
     t.string   "card"
     t.string   "seller_name"
     t.string   "seller_email"
@@ -79,6 +78,15 @@ ActiveRecord::Schema.define(version: 20160725040308) do
     t.string   "seller_address_line_2"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "seller_city"
+    t.string   "seller_state"
+    t.integer  "seller_zip_code"
+    t.string   "customer_apartment"
+    t.string   "customer_city"
+    t.string   "customer_country"
+    t.string   "customer_state"
+    t.integer  "customer_zip_code"
+    t.string   "customer_name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,6 +105,9 @@ ActiveRecord::Schema.define(version: 20160725040308) do
     t.string   "name"
     t.string   "address_line_1"
     t.string   "address_line_2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip_code"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

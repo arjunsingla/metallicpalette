@@ -29,6 +29,21 @@
         </div>
 
         <div class="form-group">
+          <%= f.label :city %><br />
+          <%= f.text_field :city, class: "form-control", autofocus: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :state %><br>
+          <%= f.select(:state, options_for_select(['Alabama','Alaska', 'Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming']), {}, {class: "form-control"}) %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :zip_code %><br />
+          <%= f.text_field :zip_code, class: "form-control", autofocus: true %>
+        </div>
+
+        <div class="form-group">
           <%= f.label :password %>
           <% if @validatable %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
