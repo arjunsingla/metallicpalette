@@ -8,7 +8,7 @@ class Piece < ActiveRecord::Base
 	validates :image, presence: true
 	validates :genre, presence: true
 	validates :size, presence: true
-	validates :price, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }, numericality: { greater_than: 0, less_than: 1000000 }
+	validates :price, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }, numericality: { greater_than: 0.5, less_than: 1000000 }
 	validates :description, presence: true
 
 	def price_in_cents
