@@ -21,11 +21,11 @@ class ChargesController < ApplicationController
 	 		currency: charge.currency,
 	 		card: params[:stripeToken],
 	 		description: charge.description, 
-	    	customer_id: customer.id, 
+	    	customer_id: customer.id,
+	    	piece_id: piece.id, 
 
 	    	customer_name: params[:stripeShippingName],
 	    	customer_address_line_1: params[:stripeShippingAddressLine1],
-	    	customer_apartment: params[:stripeShippingAddressApt],
     		customer_city: params[:stripeShippingAddressCity],
     		customer_state: params[:stripeShippingAddressState],
 			customer_zip_code: params[:stripeShippingAddressZip],

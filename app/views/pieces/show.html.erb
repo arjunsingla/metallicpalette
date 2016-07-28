@@ -36,7 +36,6 @@
                 <%= hidden_field_tag 'stripeEmail' %>
                 <%= hidden_field_tag 'stripeShippingName' %>
                 <%= hidden_field_tag 'stripeShippingAddressLine1' %>
-                <%= hidden_field_tag 'stripeShippingAddressApt' %>
                 <%= hidden_field_tag 'stripeShippingAddressZip' %>
                 <%= hidden_field_tag 'stripeShippingAddressCity' %>
                 <%= hidden_field_tag 'stripeShippingAddressState' %>
@@ -54,7 +53,6 @@
                     document.getElementById("stripeEmail").value = token.email;
                     document.getElementById("stripeShippingName").value = arg.shipping_name;
                     document.getElementById("stripeShippingAddressLine1").value = arg.shipping_address_line1;
-                    document.getElementById("stripeShippingAddressApt").value = arg.shipping_address_apt;
                     document.getElementById("stripeShippingAddressZip").value = arg.shipping_address_zip;
                     document.getElementById("stripeShippingAddressCity").value = arg.shipping_address_city;
                     document.getElementById("stripeShippingAddressState").value = arg.shipping_address_state;
