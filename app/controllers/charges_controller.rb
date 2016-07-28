@@ -41,8 +41,7 @@ class ChargesController < ApplicationController
 
 	   )
 
-		redirect_to purchase
-
+		redirect_to pieces_path, notice: "Thanks for buying #{piece.title} for $#{'%.2f' % piece.price}. You should get an email shortly."
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message
