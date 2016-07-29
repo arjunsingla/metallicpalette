@@ -24,7 +24,7 @@
           </div>
           <div class="panel-footer">
             <% if (current_user && piece.user == current_user) or admin_user_signed_in? %>
-              <% if piece.status != 1 %>
+              <% if piece.status == 2 %>
                 <p>This piece is not yet authorized.</p>
               <% end %>
 

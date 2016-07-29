@@ -14,7 +14,7 @@
 
         <p><%= @piece.size %></p>
 
-        <% if current_user == @piece.user %>
+        <% if current_user == @piece.user || @piece.status != 1 %>
           <div class ="green">
             <p>$<%= number_with_precision @piece.price, :precision => 2%></p>
           </div>
@@ -29,7 +29,7 @@
         <% end %>
         
         <!-- Stripe Form -->
-        <% if current_user != @piece.user %>
+        <% if current_user != @piece.user && @piece.status == 1 %>
            <%= form_tag charges_path, id: 'chargeForm' do %>
                 <script src="https://checkout.stripe.com/checkout.js"></script>
                 <%= hidden_field_tag 'stripeToken' %>

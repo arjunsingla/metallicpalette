@@ -15,6 +15,19 @@
  *= require_self
  */
 
+.container3 {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.jumbotron {
+	border-radius: 10px;
+}
+
+.jumbotron .btn-primary {
+	margin: 5px;
+}
+
 /* Buy Button Start */
 
 #btn-buy-show {

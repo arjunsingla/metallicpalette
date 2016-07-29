@@ -13,7 +13,7 @@ class PiecesController < ApplicationController
   end
 
    def requests
-    @pieces = Piece.all
+    @pieces = Piece.where(status: 2)
     respond_with(@pieces)
   end
 
@@ -68,7 +68,7 @@ class PiecesController < ApplicationController
     end
 
     def piece_ready_to_show
-      if @piece.status != 1
+      if @piece.status == 2
         return if user_signed_in? and @piece.user == current_user
         return if admin_user_signed_in?
         redirect_to pieces_path, notice: "This piece is not ready to be shown."

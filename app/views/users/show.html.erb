@@ -1,0 +1,9 @@
+<div class="container3">
+	<div class="jumbotron center">
+		<h1> <%= @user.name %> </h1>
+	  	<% if current_user == @user || admin_user_signed_in? %>
+			<p><%= link_to "Approved", userapproved_user_path, class: "btn btn-primary btn-lg" %><%= link_to "Requests", userrequests_user_path, class: "btn btn-primary btn-lg" %>     
+			<%= link_to "Bought", userbought_user_path, class: "btn btn-primary btn-lg" %></p> 
+		<% end %>
+	</div>
+</div>

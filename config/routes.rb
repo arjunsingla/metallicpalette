@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  
+  root 'pages#home'
+
   resources :pieces do
     collection do
       get 'requests'
@@ -9,7 +12,14 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  root 'pages#home'
+  
+  resources :users, :only => [:show] do
+    member do
+      get 'userbought'
+      get 'userrequests'
+      get 'userapproved'
+    end
+  end
 
   #Support stripe payments through charges
   resources :charges
