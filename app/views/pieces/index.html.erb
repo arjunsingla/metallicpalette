@@ -4,7 +4,7 @@
 
   <div id="pieces" class="transitions-enabled">
     <% @pieces.each do |piece| %>
-      <% if piece.status == 1 or (admin_user_signed_in? or (current_user && piece.user == current_user))  %>
+      <% if piece.status == 1 or (admin_user_signed_in? && piece.status == 2) %>
         <div class="box panel panel-default">
           <%= link_to image_tag(piece.image.url(:medium)), piece %>
 
@@ -37,7 +37,7 @@
                   <% end %>
               </div>
             <% end %>
-           </div>
+          </div>
         </div>
       <% end %>
     <% end %>

@@ -21,11 +21,22 @@
 }
 
 .jumbotron {
+	margin-top: 10px;
 	border-radius: 10px;
+	padding-bottom: 10px;
 }
 
 .jumbotron .btn-primary {
 	margin: 5px;
+}
+
+.jumbotron img {
+	height: 150px;
+	border-radius: 50%;
+}
+
+.jumbotron h1 {
+	margin-top: -30px;
 }
 
 /* Buy Button Start */

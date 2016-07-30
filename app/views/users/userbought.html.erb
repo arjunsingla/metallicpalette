@@ -2,6 +2,7 @@
 
 	<div class="jumbotron center">
 		<h1> <%= @user.name %> </h1>
+		<img><%= image_tag @user.avatar.url(:thumb) %></img>
 	  	<h2>Bought</h2>
 		<p><%= link_to "Approved", userapproved_user_path, class: "btn btn-primary btn-lg" %>     
 		<%= link_to "Requests", userrequests_user_path, class: "btn btn-primary btn-lg" %></p> 
