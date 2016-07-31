@@ -15,7 +15,7 @@
             <div class ="green">
               $<%= number_with_precision piece.price, :precision => 2%>
             </div>      
-            <strong><%= piece.user.name if piece.user %></strong><br/>
+            <strong><%=link_to piece.user.name, userapproved_user_path(piece.user) if piece.user %></strong><br/>
             <% if admin_user_signed_in? %>
               <p> Status: <%= piece.status %></p>
             <% end %>

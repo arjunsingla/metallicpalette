@@ -14,5 +14,5 @@ class User < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true
   validates :zip_code, presence: true, numericality: { only_integer: true }
-
+  validates_presence_of :terms_and_conditions, :message => "must be accepted"
 end

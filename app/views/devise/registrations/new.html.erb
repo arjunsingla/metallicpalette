@@ -61,6 +61,12 @@
           <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off" %>
         </div>
 
+        <div class="checkbox">
+          <label>
+            <%= f.check_box :terms_and_conditions %><strong> I accept the terms and conditions<strong>
+          </label>
+        </div>
+
         <div class="form-group">
           <%= f.submit "Sign up", class: "btn btn-success btn-lg" %>
         </div>

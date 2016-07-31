@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :pieces do
     collection do
       get 'requests'
+      get 'bought'
     end
   end
 

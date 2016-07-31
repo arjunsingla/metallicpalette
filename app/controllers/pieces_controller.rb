@@ -4,7 +4,7 @@ class PiecesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   before_action :admin_or_user, only: [:edit, :update, :destroy]
   before_action :piece_ready_to_show, only: [:show]
-  before_action :can_see_requests, only: [:requests]
+  before_action :admin_only, only: [:requests, :bought]
   respond_to :html
 
   def index
@@ -14,6 +14,11 @@ class PiecesController < ApplicationController
 
    def requests
     @pieces = Piece.where(status: 2)
+    respond_with(@pieces)
+  end
+
+  def bought
+    @pieces = Piece.where(status: 3)
     respond_with(@pieces)
   end
 
@@ -75,7 +80,7 @@ class PiecesController < ApplicationController
       end   
     end
 
-    def can_see_requests
+    def admin_only
       return if admin_user_signed_in?
       redirect_to pieces_path, notice: "Access Denied. Admin only." 
     end
