@@ -2,10 +2,11 @@
 	<div class="jumbotron center">
 		<h1> <%= @user.name %> </h1>
 		<img><%= image_tag @user.avatar.url(:thumb) %></img>
-
-	  	<% if current_user == @user || admin_user_signed_in? %>
-			<p><%= link_to "Approved", userapproved_user_path, class: "btn btn-primary btn-lg" %><%= link_to "Requests", userrequests_user_path, class: "btn btn-primary btn-lg" %>     
-			<%= link_to "Bought", userbought_user_path, class: "btn btn-primary btn-lg" %></p> 
-		<% end %>
+		<p><%= simple_format(@user.user_description) %></p>
+		<p>
+			<%= link_to "Approved", userapproved_user_path, class: "btn btn-primary btn-lg" %>
+			<%= link_to "Requests", userrequests_user_path, class: "btn btn-primary btn-lg" %>     
+			<%= link_to "Bought", userbought_user_path, class: "btn btn-primary btn-lg" %>
+		</p> 
 	</div>
 </div>
