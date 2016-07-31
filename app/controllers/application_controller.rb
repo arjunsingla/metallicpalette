@@ -24,6 +24,8 @@ class ApplicationController < ActionController::Base
    devise_parameter_sanitizer.for(:sign_up) << :avatar
    devise_parameter_sanitizer.for(:account_update) << :avatar
    devise_parameter_sanitizer.for(:sign_up) << :terms_and_conditions
+   devise_parameter_sanitizer.for(:account_update) << :terms_and_conditions
+
 
  end
 end
