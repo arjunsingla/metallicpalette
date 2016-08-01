@@ -1,1 +1,16 @@
-<h1> Thanks for buying! <h1>
+<h1> Thanks for buying! </h1>
+	
+<p> Dear <%= @purchase.customer_name %>,</p>
+
+<p> You just bought <strong><%= @piece.title %> for $<%= number_with_precision @piece.price, :precision => 2 %></strong>. We have contacted the seller, and your purchase should arrive in the next two to three weeks. </p>
+
+<p> You can view your art <%= link_to "here", piece_path(@piece) %>
+
+<p> If you have any questions about your purchase, you may contact the seller at this email: <strong><%= @purchase.seller_email %></strong>. They are shipping from <strong><%= @purchase.seller_city %>, <%= @purchase.seller_state %> to your place in <%= @purchase.customer_city%>, <%= @purchase.customer_state %>, <%= @purchase.customer_country %> </strong>. </p>
+
+<p> We have told the seller to ship your art in the next week. <strong>If you do not recieve an email from them in the next week, send them an email and cc us (support@metallicpalette.com).</strong> Feel free to contact us if you have any questions :) </strong>
+
+<p> 30% of your money goes directly to autistic research, and we would like to thank you for your donation. This money will go a long way. </p><br/>
+
+<p> Yours truly, </p>
+<p> The Metallic Pallette Team </p>

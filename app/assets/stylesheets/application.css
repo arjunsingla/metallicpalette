@@ -15,10 +15,26 @@
  *= require_self
  */
 
+
+
+/* Mailer Start */
+
+.mailer {
+	background-color: #ecf0f1;
+	color: #333333;
+}
+
+/* Mailer Start */
+
+
+
+
 .container3 {
 	margin-left: 5%;
 	margin-right: 5%;
 }
+
+/* Jumbotron Start */
 
 .jumbotron {
 	margin-top: 10px;
@@ -43,6 +59,8 @@
 	font-size: 18px;
 }
 
+/* Jumbotron End */
+
 /* Buy Button Start */
 
 #btn-buy-show {
@@ -53,7 +71,7 @@
 .green {
 	color: #5cb85c;
 }
-/* Buy End Start */
+/* Buy Button End */
 
 .center {
 	text-align: center;
