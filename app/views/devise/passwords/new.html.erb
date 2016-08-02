@@ -8,23 +8,21 @@
 		<%= devise_error_messages! %>
 		<ul class=".navbar-left">
 	  		<div class="col-md-4"> 
-		  		<div class="form group">
+		  		<div class="form-group">
 				   <%= f.label :email %><br />
 				   <%= f.email_field :email, autofocus: true, class: "form-control" %>
 		  		</div>
+		  		<div class="form-group">
+			    	<%= f.submit "Send me reset password instructions", class: "btn btn-danger" %>
+			  	</div>
 			</div>
 		</ul>
 	</div>
+	<% end %>
 
-	<div class="panel-footer">
-		<ul class=".navbar-left">		 
-		  <div class="form-group">
-		    <%= f.submit "Send me reset password instructions", class: "btn btn-danger" %>
-		  </div>
-		</ul>
-			<% end %>
+	<div class="panel-footer">	
 		<ul class=".navbar-left">
 			<%= render "devise/shared/links" %>
 		</ul>
 	</div>
-</div<
+</div>

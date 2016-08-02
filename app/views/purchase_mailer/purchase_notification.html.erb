@@ -12,7 +12,7 @@
 <p><%= @purchase.customer_city %>, <%= @purchase.customer_state %>, <%= @purchase.customer_zip_code %></p>
 <p><%= @purchase.customer_country %></p><br/></strong>
 
-<p> 2. After you have shipped, email your customer (you can use this <a href="#">template</a> if you like). Your customer's email is <strong> <%= @purchase.customer_email %></strong>. <strong> Be sure to include the package tracking number in this email. </strong></p><br/>
+<p> 2. After you have shipped, email your customer (you can use this <a href="#">template</a> if you like). Your customer's email is <strong> <%= @purchase.customer_email %></strong>. <strong> Be sure to include the package tracking number in this email. </strong></p>
 
 <p> You can view the purchased piece at this <%= link_to "link", piece_url(@piece, host: 'metallicpalette.com') %>.</p>
 
@@ -21,7 +21,7 @@
 
 <p>Once the customer recieves the package, we will mail you your 50% cut of the transaction by check. In this case, you will recieve <strong>$<%= number_with_precision @piece.price/2, :precision => 2 %>.</strong> 40% of the total transaction will go to fund autistic research, and we would like to thank you for this contribution.</p>
 
-<p> We have given your customer your email, and so don't freak out if they email you ;). If you have any questions, shoot us an email at support@metallicpalette.com.<p></br>
+<p> We have given your customer your email, and so don't freak out if they email you ;). If you have any questions, shoot us an email at support@metallicpalette.com.</p></br>
 
 <p> Happy selling,</p>
 <p> The Metallic Palette Team </p>
