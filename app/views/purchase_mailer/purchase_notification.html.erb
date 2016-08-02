@@ -14,7 +14,7 @@
 
 <p> 2. After you have shipped, email your customer (you can use this <a href="#">template</a> if you like). Your customer's email is <strong> <%= @purchase.customer_email %></strong>. <strong> Be sure to include the package tracking number in this email. </strong></p><br/>
 
-<p> You can view the purchased piece at this <a href="metallicpalette.com/pieces/#{@piece.id}">link</a>.</p>
+<p> You can view the purchased piece at this <%= link_to "link", piece_url(@piece, host: 'metallicpalette.com') %>.</p>
 
 
 <p><strong> You will have one week from today to ship to the customer, and send them their email.</strong></p>
