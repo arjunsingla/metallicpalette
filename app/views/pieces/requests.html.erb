@@ -1,11 +1,13 @@
-<div class="container2">
+<div class="container">	
 
-  <h1>Requests</h1>
+	<div class="center">
+   	<h1>Requests</h1>
+  	</div>
 
 	<div id="pieces" class="transitions-enabled">
 	   <% @pieces.each do |piece| %>
-        	<div class="box panel panel-default">
-         	<%= link_to image_tag(piece.image.url(:medium)), piece %>
+	     	<div class="box panel panel-default">
+	      	<%= link_to image_tag(piece.image.url(:medium)), piece %>
 
 	         <div class="panel-body">
 	           	<%= piece.title %><br/>
@@ -29,7 +31,7 @@
 		            <% end %>
 		         </div>
 		      </div>
-        	</div>
+	     	</div>
 	   <% end %>
 	</div>
 </div>

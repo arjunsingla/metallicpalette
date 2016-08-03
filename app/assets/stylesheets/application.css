@@ -16,10 +16,6 @@
  */
 
 
-.container3 {
-	margin-left: 5%;
-	margin-right: 5%;
-}
 
 /* Jumbotron Start */
 
@@ -64,25 +60,15 @@
 	text-align: center;
 }
 
-.container2 {
-	padding-left: 10px;
-	padding-right: -100%;
-}
-
-
 .alert {
 	margin-bottom: 0px;
 }
 
 .panel-primary {
-	width: 84%;
-	margin-left: 8%;
 	margin-top: 30px;
 }
 
 .panel-danger {
-	width: 84%;
-	margin-left: 8%;
 	margin-top: 30px;
 }
 /* Carousel Start */

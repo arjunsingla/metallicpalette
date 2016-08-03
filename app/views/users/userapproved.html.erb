@@ -1,19 +1,18 @@
-<div class="container3">
-
-	<div class="jumbotron center">
-		<h1> <%= @user.name %> </h1>
-		<img><%= image_tag @user.avatar.url(:thumb) %></img>
+<div class="container">  
+  <div class="jumbotron center">
+  	<h1> <%= @user.name %> </h1>
+  	<img><%= image_tag @user.avatar.url(:thumb) %></img>
     <% if current_user != @user %>
       <p><%= simple_format(@user.user_description) %></p>
     <% end %>
   	<% if current_user == @user || admin_user_signed_in? %>
-	  	<h2>Approved</h2>
+    	<h2>Approved</h2>
   		<p>
         <%= link_to "Requests", userrequests_user_path, class: "btn btn-primary btn-lg" %>     
   		  <%= link_to "Bought", userbought_user_path, class: "btn btn-primary btn-lg" %>
       </p> 
-		<% end %>
-	</div>
+  	<% end %>
+  </div>
 
   <div id="pieces" class="transitions-enabled">
     <% @pieces.each do |piece| %>
