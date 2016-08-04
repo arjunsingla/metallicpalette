@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803033047) do
+ActiveRecord::Schema.define(version: 20160804022215) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -80,11 +80,11 @@ ActiveRecord::Schema.define(version: 20160803033047) do
     t.datetime "updated_at",              null: false
     t.string   "seller_city"
     t.string   "seller_state"
-    t.integer  "seller_zip_code"
+    t.string   "seller_zip_code"
     t.string   "customer_city"
     t.string   "customer_country"
     t.string   "customer_state"
-    t.integer  "customer_zip_code"
+    t.string   "customer_zip_code"
     t.string   "customer_name"
     t.integer  "piece_id"
     t.datetime "ship_by"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20160803033047) do
     t.string   "address_line_2"
     t.string   "city"
     t.string   "state"
-    t.integer  "zip_code"
+    t.string   "zip_code"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"

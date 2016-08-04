@@ -24,11 +24,11 @@
 			  <tbody>
 			  	<tr>
 			      <td>Total Transaction</td>
-			      <td>$<%= number_with_precision @piece.price, :precision => 2%></td>
+			      <td>$<%= number_with_precision(@piece.price, :precision => 2, :delimiter => ',')%></td>
 			    </tr>
 			    <tr>
 			      <td>My Cut</td>
-			      <td>$<%= number_with_precision @piece.price/2, :precision => 2%></td>
+			      <td>$<%= number_with_precision(@piece.price/2, :precision => 2, :delimiter => ',')%></td>
 			    </tr>
 			    <tr>
 			      <td>Customer Name</td>

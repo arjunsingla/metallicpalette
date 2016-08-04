@@ -13,7 +13,7 @@
 	           	<%= piece.title %><br/>
 	            <%= piece.genre %><br/>
 	            <%= piece.size %><br/>
-	            $<%= piece.price %><br/>
+					$<%= number_with_precision(piece.price, :precision => 2, :delimiter => ',')%><br/>
 	           <strong><%=link_to piece.user.name, userapproved_user_path(piece.user) if piece.user %></strong><br/>
 					<% if admin_user_signed_in? %>
 		         	<p> Status: <%= piece.status %></p>

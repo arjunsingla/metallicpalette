@@ -2,7 +2,7 @@
 
 <p> Dear <%= @purchase.seller_name %>,</p>
 
-<p> You just sold <strong><%= @piece.title %> for $<%= number_with_precision @piece.price, :precision => 2 %></strong>. </p>
+<p> You just sold <strong><%= @piece.title %> for $<%= number_with_precision(@piece.price, :precision => 2, :delimiter => ',') %></strong>. </p>
 
 <p> What happens next? <strong> Follow these steps carefully: </strong><br/>
 
@@ -17,9 +17,9 @@
 <p> You can view the purchased piece at this <%= link_to "link", piece_url(@piece, host: 'metallicpalette.com') %>.</p>
 
 
-<p><strong> You will have one week from today to ship to the customer, and send them their email. In this case, you must ship and send the email by <%= (@purchase.created_at + 7.days).strftime("%B %d, %Y") %>. The customer must recieve the package by <%= (@purchase.created_at + 21.days).strftime("%B %d, %Y") %>.</strong></p>
+<p><strong> You will have one week from today to ship to the customer and send them their email. In this case, you must ship the package and send the email by <%= (@purchase.created_at + 7.days).strftime("%B %d, %Y") %>. The customer must recieve the package by <%= (@purchase.created_at + 21.days).strftime("%B %d, %Y") %>.</strong></p>
 
-<p>Once the customer recieves the package, we will mail you your 50% cut of the transaction by check. In this case, you will recieve <strong>$<%= number_with_precision @piece.price/2, :precision => 2 %>.</strong> 40% of the total transaction will go to fund autistic research, and we would like to thank you for this contribution.</p>
+<p>Once the customer recieves the package, we will mail you your 50% cut of the transaction by check. In this case, you will recieve <strong>$<%= number_with_precision(@piece.price/2, :precision => 2, :delimiter => ',')%>.</strong> 40% of the total transaction will go to fund autistic research, and we would like to thank you for this contribution.</p>
 
 <p> We have given your customer your email, and so don't freak out if they email you ;). If you have any questions, shoot us an email at support@metallicpalette.com.</p></br>
 

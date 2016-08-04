@@ -5,6 +5,8 @@ class PiecesController < ApplicationController
   before_action :admin_or_user, only: [:edit, :update, :destroy]
   before_action :piece_ready_to_show, only: [:show]
   before_action :admin_only, only: [:requests, :bought]
+  before_action :editable, only: [:edit]
+
   respond_to :html
 
   def index
@@ -61,6 +63,11 @@ class PiecesController < ApplicationController
   private
     def set_piece
       @piece = Piece.find(params[:id])
+    end
+
+    def editable
+      return if @piece.status == 1 or @piece.status == 2 or admin_user_signed_in?
+      redirect_to userbought_user_path(@piece.user), notice: "This piece has already been bought, and so cannot be edited."
     end
 
     def correct_user

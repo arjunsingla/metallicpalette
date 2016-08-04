@@ -19,7 +19,7 @@
          <%= piece.genre %><br/>
          <%= piece.size %><br/>
          <div class ="green">
-           $<%= number_with_precision piece.price, :precision => 2%>
+           $<%= number_with_precision(piece.price, :precision => 2, :delimiter => ',')%>
          </div>      
          <strong><%= piece.user.name if piece.user %></strong><br/>
          <% if admin_user_signed_in? %>

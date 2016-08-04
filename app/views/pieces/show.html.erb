@@ -17,13 +17,13 @@
 
           <% if current_user == @piece.user || @piece.status != 1 %>
             <div class ="green">
-              <p>$<%= number_with_precision @piece.price, :precision => 2%></p>
+              <p>$<%= number_with_precision(@piece.price, :precision => 2, :delimiter => ',')%></p>
             </div>
           <% end %>
           
           <p><strong><%=link_to @piece.user.name, userapproved_user_path(@piece.user) if @piece.user %></strong><p>
 
-          <p><%= @piece.description %></p>
+          <p><%= simple_format(@piece.description) %></p>
   
           <% if admin_user_signed_in? %>
               <p> Status: <%= @piece.status %></p>
@@ -44,7 +44,7 @@
                   <%= hidden_field_tag 'piece_id', @piece.id %>
                   <%= hidden_field_tag 'amount', @piece.price_in_cents %> 
    
-                  <button id="btn-buy-show" type="button" class="btn btn-success btn-lg btn-block">Buy for $<%= number_with_precision @piece.price, :precision => 2%></button>
+                  <button id="btn-buy-show" type="button" class="btn btn-success btn-lg btn-block">Buy for $<%= number_with_precision(@piece.price, :precision => 2, :delimiter => ',')%></button>
                   <script>
                   var handler = StripeCheckout.configure({
                     key: '<%= Rails.configuration.stripe[:publishable_key] %>',
@@ -64,7 +64,7 @@
                    document.getElementById('btn-buy-show').addEventListener('click', function(e) {
                     handler.open({
                       name: 'Metallic Palette',
-                      description: '<%= @piece.title %> ($<%= number_with_precision(@piece.price, :precision => 2)%>)',
+                      description: '<%= @piece.title %> ($<%= number_with_precision(@piece.price, :precision => 2, :delimiter => ',')%>)',
                       amount: document.getElementById("amount").value
                   });
                   e.preventDefault();
