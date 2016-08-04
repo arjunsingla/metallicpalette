@@ -1,0 +1,81 @@
+<!-- Button trigger modal -->
+
+<a href="#", data-toggle="modal" data-target="#myModal">
+  See Purchase Details.
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Purchase Details</h4>
+      </div>
+      <div class="modal-body">
+
+			<table class="table">
+			  <thead class="thead-inverse">
+			    <tr>
+			      <th>Parameter</th>
+			      <th>Information</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<tr>
+			      <td>Total Transaction</td>
+			      <td>$<%= number_with_precision @piece.price, :precision => 2%></td>
+			    </tr>
+			    <tr>
+			      <td>My Cut</td>
+			      <td>$<%= number_with_precision @piece.price/2, :precision => 2%></td>
+			    </tr>
+			    <tr>
+			      <td>Customer Name</td>
+			      <td><%= @purchase.customer_name %></td>
+			    </tr>
+			    <tr>
+			      <td>Customer Email</td>
+			      <td><%= @purchase.customer_email %></td>
+			    </tr>
+			    <tr>
+			      <td>Customer Street Address</td>
+			      <td><%= @purchase.customer_address_line_1 %></td>
+			    </tr>
+			    <tr>
+			      <td>Customer City</td>
+			      <td><%= @purchase.customer_city %></td>
+			    </tr>
+			    <tr>
+			      <td>Customer State</td>
+			      <td><%= @purchase.customer_state %></td>
+			    </tr>
+			    <tr>
+			      <td>Customer Zip Code</td>
+			      <td><%= @purchase.customer_zip_code %></td>
+			    </tr>
+			    <tr>
+			      <td>Customer Country</td>
+			      <td><%= @purchase.customer_country %></td>
+			    </tr>
+			    <tr>
+			      <td>Bought</td>
+			      <td><%= @purchase.created_at.strftime("%B %d, %Y") %></td>
+			    </tr>
+			    <tr>
+			      <td>Must Ship and Send Email by</td>
+			      <td><%= @purchase.ship_by.strftime("%B %d, %Y") %></td>
+			    </tr>
+			    <tr>
+			      <td>Must Arrive By</td>
+			      <td><%= @purchase.arrive_by.strftime("%B %d, %Y") %></td>
+			    </tr>
+			  </tbody>
+			</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

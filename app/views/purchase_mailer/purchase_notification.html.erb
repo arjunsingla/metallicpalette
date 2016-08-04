@@ -17,7 +17,7 @@
 <p> You can view the purchased piece at this <%= link_to "link", piece_url(@piece, host: 'metallicpalette.com') %>.</p>
 
 
-<p><strong> You will have one week from today to ship to the customer, and send them their email.</strong></p>
+<p><strong> You will have one week from today to ship to the customer, and send them their email. In this case, you must ship and send the email by <%= (@purchase.created_at + 7.days).strftime("%B %d, %Y") %>. The customer must recieve the package by <%= (@purchase.created_at + 21.days).strftime("%B %d, %Y") %>.</strong></p>
 
 <p>Once the customer recieves the package, we will mail you your 50% cut of the transaction by check. In this case, you will recieve <strong>$<%= number_with_precision @piece.price/2, :precision => 2 %>.</strong> 40% of the total transaction will go to fund autistic research, and we would like to thank you for this contribution.</p>
 

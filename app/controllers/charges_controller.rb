@@ -40,6 +40,11 @@ class ChargesController < ApplicationController
 	    	seller_zip_code: piece.user.zip_code
 
 	   )
+
+	   purchase.ship_by = purchase.created_at + 7.days
+	   purchase.arrive_by = purchase.created_at + 21.days
+	   purchase.save!
+
 	 	piece.status = 3
 	 	piece.save!
 		redirect_to pieces_path, notice: "Thanks for buying #{piece.title} for $#{'%.2f' % piece.price}. You should get an email shortly."

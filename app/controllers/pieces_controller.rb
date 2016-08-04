@@ -23,6 +23,7 @@ class PiecesController < ApplicationController
   end
 
   def show
+    @purchase = Purchase.find_by(piece_id: [@piece.id])
     respond_with(@piece)
   end
 

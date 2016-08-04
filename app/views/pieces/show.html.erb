@@ -74,8 +74,13 @@
           <% end %>
 
           <% if @piece.status == 3 %>
-            <p>This piece has already been bought.</p>
+            <p>This piece has already been bought.
+              <% if current_user == @piece.user || admin_user_signed_in? %>
+                <%= render 'pieces/purchase_details' %>
+              <% end %>
+            </p>
           <% end %>
+
           <% if (current_user && @piece.user == current_user) || admin_user_signed_in? %>
              <% if @piece.status == 2 %>
                 <p>This piece is not yet authorized.</p>
