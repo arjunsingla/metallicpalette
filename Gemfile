@@ -15,6 +15,10 @@ gem 'pg', group: :production
 # Add 12 factor for Heroku
 gem 'rails_12factor', group: :production
 
+#Add rack-ssl to force a secure connection
+gem 'rack-ssl', group: :production
+
+
 # Use bootstrap for improving the look and feel
 gem 'bootstrap-sass'
 

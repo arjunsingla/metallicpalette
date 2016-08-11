@@ -48,6 +48,9 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :debug
 
+  #Forcing a secure connection
+  config.middleware.use Rack::SSL
+
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 
