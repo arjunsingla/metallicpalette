@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804022215) do
+ActiveRecord::Schema.define(version: 20160814045812) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20160804022215) do
     t.string   "title"
     t.string   "genre"
     t.string   "size"
-    t.decimal  "price",              precision: 8, scale: 2
+    t.decimal  "artist_cut",         precision: 8, scale: 2
     t.text     "description"
     t.integer  "status"
     t.datetime "created_at",                                 null: false
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160804022215) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.decimal  "total_price",        precision: 8, scale: 2
   end
 
   add_index "pieces", ["user_id"], name: "index_pieces_on_user_id"
@@ -76,8 +77,8 @@ ActiveRecord::Schema.define(version: 20160804022215) do
     t.string   "seller_email"
     t.string   "seller_address_line_1"
     t.string   "seller_address_line_2"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "seller_city"
     t.string   "seller_state"
     t.string   "seller_zip_code"
@@ -89,6 +90,12 @@ ActiveRecord::Schema.define(version: 20160804022215) do
     t.integer  "piece_id"
     t.datetime "ship_by"
     t.datetime "arrive_by"
+    t.decimal  "total_transaction",       precision: 8, scale: 2
+    t.decimal  "stripe_fee",              precision: 8, scale: 2
+    t.decimal  "taxes",                   precision: 8, scale: 2
+    t.decimal  "artist_cut",              precision: 8, scale: 2
+    t.decimal  "charity_cut",             precision: 8, scale: 2
+    t.decimal  "our_cut",                 precision: 8, scale: 2
   end
 
   create_table "users", force: :cascade do |t|
