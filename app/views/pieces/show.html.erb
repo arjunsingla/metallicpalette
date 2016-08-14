@@ -15,9 +15,15 @@
 
           <p><%= @piece.size %></p>
 
+          <% if current_user == @piece.user || admin_user_signed_in? %>
+            <div class ="purple">
+              <p>$<%= number_with_precision(@piece.artist_cut, :precision => 2, :delimiter => ',')%></p>
+            </div>
+          <% end %>
+
           <% if current_user == @piece.user || @piece.status != 1 %>
             <div class ="green">
-              <p>$<%= number_with_precision(@piece.price, :precision => 2, :delimiter => ',')%></p>
+              <p>$<%= number_with_precision(@piece.total_price, :precision => 2, :delimiter => ',')%></p>
             </div>
           <% end %>
           
@@ -42,9 +48,9 @@
                   <%= hidden_field_tag 'stripeShippingAddressState' %>
                   <%= hidden_field_tag 'stripeShippingAddressCountry' %>
                   <%= hidden_field_tag 'piece_id', @piece.id %>
-                  <%= hidden_field_tag 'amount', @piece.price_in_cents %> 
+                  <%= hidden_field_tag 'amount', @piece.total_price_in_cents %> 
    
-                  <button id="btn-buy-show" type="button" class="btn btn-success btn-lg btn-block">Buy for $<%= number_with_precision(@piece.price, :precision => 2, :delimiter => ',')%></button>
+                  <button id="btn-buy-show" type="button" class="btn btn-success btn-lg btn-block">Buy for $<%= number_with_precision(@piece.total_price, :precision => 2, :delimiter => ',')%></button>
                   <script>
                   var handler = StripeCheckout.configure({
                     key: '<%= Rails.configuration.stripe[:publishable_key] %>',
@@ -64,7 +70,7 @@
                    document.getElementById('btn-buy-show').addEventListener('click', function(e) {
                     handler.open({
                       name: 'Metallic Palette',
-                      description: '<%= @piece.title %> ($<%= number_with_precision(@piece.price, :precision => 2, :delimiter => ',')%>)',
+                      description: '<%= @piece.title %> ($<%= number_with_precision(@piece.total_price, :precision => 2, :delimiter => ',')%>)',
                       amount: document.getElementById("amount").value
                   });
                   e.preventDefault();

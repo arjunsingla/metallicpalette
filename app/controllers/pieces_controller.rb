@@ -99,6 +99,6 @@ class PiecesController < ApplicationController
     end
 
     def piece_params
-      params.require(:piece).permit(:title, :image, :genre, :size, :price, :description, :status)
+      params.require(:piece).permit(:title, :image, :genre, :size, :artist_cut, :total_price, :description, :status)
     end
 end
