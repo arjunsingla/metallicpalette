@@ -30,10 +30,23 @@
     <%= f.label :size %><br>
     <%= f.text_field :size, class: "form-control" %>
   </div>
+
   <div class="form-group">
-    <%= f.label :price %>
-    <%= f.text_field :price, class: "form-control" %>
+    <%= f.label :artist_cut %>
+    <%= f.text_field :artist_cut, class: "form-control", id: "artist_cut" %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :total_price %>
+    <%= f.text_field :total_price, class: "form-control", id: "total_price", readonly: true %>
+  </div>
+
+  <script>
+    $(document).on("change", "#artist_cut", function() {
+      var artist_cut = $("#artist_cut").val() || 0;
+      $("#total_price").val(Math.ceil((((artist_cut*2.19)+0.3)/(1-0.029))*100)/100);
+    });
+  </script>
 
   <div class="form-group">
     <%= f.label :description %><br>
