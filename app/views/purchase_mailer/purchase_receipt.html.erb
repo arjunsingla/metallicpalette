@@ -2,7 +2,7 @@
 	
 <p> Dear <%= @purchase.customer_name %>,</p>
 
-<p> You just bought <strong><%= @piece.title %> for $<%= number_with_precision(@piece.price, :precision => 2, :delimiter => ',')%></strong>. We have contacted the seller, and your purchase should arrive in the next two to three weeks. </p>
+<p> You just bought <strong><%= @piece.title %> for $<%= number_with_precision(@piece.total_price, :precision => 2, :delimiter => ',')%></strong>. We have contacted the seller, and your purchase should arrive in the next two to three weeks. </p>
 
 <p> You can view the art you bought at this <%= link_to "link", piece_url(@piece, host: 'metallicpalette.com') %>.</p>
 

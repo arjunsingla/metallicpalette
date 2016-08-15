@@ -10,14 +10,21 @@ class ChargesController < ApplicationController
 
 	  charge = Stripe::Charge.create(
 	    :customer    => customer.id,
-	    :amount      => piece.price_in_cents,
+	    :amount      => piece.total_price_in_cents,
 	    :description => piece.title,
 	    :currency    => 'usd'
 	  )
 
 	 	purchase = Purchase.create(
-	 		customer_email: params[:stripeEmail], 
-	 		amount: piece.price_in_cents, 
+	 		customer_email: params[:stripeEmail],
+	 		 
+	 		total_transaction: piece.total_price,
+	 		stripe_fee: piece.stripe_fee,
+	 		taxes: piece.taxes,
+	 		artist_cut: piece.artist_cut,
+	 		charity_cut: piece.charity_cut,
+	 		our_cut: piece.our_cut,
+
 	 		currency: charge.currency,
 	 		card: params[:stripeToken],
 	 		description: charge.description, 
@@ -47,7 +54,7 @@ class ChargesController < ApplicationController
 
 	 	piece.status = 3
 	 	piece.save!
-		redirect_to pieces_path, notice: "Thanks for buying #{piece.title} for $#{'%.2f' % piece.price}. You should get an email shortly."
+		redirect_to pieces_path, notice: "Thanks for buying #{piece.title} for $#{'%.2f' % piece.total_price}. You should get an email shortly."
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message

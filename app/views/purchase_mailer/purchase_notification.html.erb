@@ -2,11 +2,11 @@
 
 <p> Dear <%= @purchase.seller_name %>,</p>
 
-<p> You just sold <strong><%= @piece.title %> for $<%= number_with_precision(@piece.price, :precision => 2, :delimiter => ',') %></strong>. </p>
+<p> You just sold <strong><%= @piece.title %> for $<%= number_with_precision(@piece.total_price, :precision => 2, :delimiter => ',') %></strong>. </p>
 
 <p> What happens next? <strong> Follow these steps carefully: </strong><br/>
 
-<p> 1. Ship your package to the customer. The address is: </p>
+<p> 1. Ship your package to the customer. Note that your cut of the money will get to you only after the package arrives at the customer's place, so you will have to spend some money out of pocket to ship the package. But don't worry, this will be reimbursed when we give you your money. The address is: </p>
 <strong><p><%= @purchase.customer_name %></p> 
 <p><%= @purchase.customer_address_line_1 %></p> 
 <p><%= @purchase.customer_city %>, <%= @purchase.customer_state %>, <%= @purchase.customer_zip_code %></p>
@@ -19,7 +19,7 @@
 
 <p><strong> You will have one week from today to ship to the customer and send them their email. In this case, you must ship the package and send the email by <%= (@purchase.created_at + 7.days).strftime("%B %d, %Y") %>. The customer must recieve the package by <%= (@purchase.created_at + 21.days).strftime("%B %d, %Y") %>.</strong></p>
 
-<p>Once the customer recieves the package, we will mail you your 50% cut of the transaction by check. In this case, you will recieve <strong>$<%= number_with_precision(@piece.price/2, :precision => 2, :delimiter => ',')%>.</strong> 40% of the total transaction will go to fund autistic research, and we would like to thank you for this contribution.</p>
+<p>Once the customer recieves the package, we will mail you your cut of the transaction by check. In this case, you will recieve <strong>$<%= number_with_precision(@piece.artist_cut, :precision => 2, :delimiter => ',')%>.</strong> Note that this amount includes your shipping costs. 40% of the total transaction will go to fund autistic research, and we would like to thank you for this contribution.</p>
 
 <p> We have given your customer your email, and so don't freak out if they email you ;). If you have any questions, shoot us an email at support@metallicpalette.com.</p></br>
 

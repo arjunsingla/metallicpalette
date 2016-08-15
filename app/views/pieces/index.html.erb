@@ -15,15 +15,15 @@
             <%= piece.genre %><br/>
             <%= piece.size %><br/>
             <div class ="green">
-              $<%= number_with_precision(piece.price, :precision => 2, :delimiter => ',')%>
+              $<%= number_with_precision(piece.total_price, :precision => 2, :delimiter => ',')%>
             </div>      
             <strong><%=link_to piece.user.name, userapproved_user_path(piece.user) if piece.user %></strong><br/>
+            
             <% if admin_user_signed_in? %>
               <p> Status: <%= piece.status %></p>
             <% end %>
-
-
           </div>
+
           <div class="panel-footer">
             <% if (current_user && piece.user == current_user) or admin_user_signed_in? %>
               <% if piece.status == 2 %>

@@ -13,7 +13,12 @@ ActiveAdmin.register Purchase do
 #   permitted
 # end
 
-	 filter :amount
+	 filter :total_transaction
+	 filter :artist_cut
+	 filter :stripe_fee
+	 filter :taxes
+	 filter :charity_cut
+	 filter :our_cut
     filter :description
     filter :piece_id
     filter :customer_email
@@ -40,9 +45,25 @@ ActiveAdmin.register Purchase do
 	index do
 	    selectable_column
 	    id_column
-	    column :amount do |purchase|
-	    	"$" + number_with_precision((purchase.amount.to_f)/100, :precision => 2, :delimiter => ',')
+	    column :total_transaction do |purchase|
+	    	"$" + number_with_precision(purchase.total_transaction, :precision => 2, :delimiter => ',')
 	     end
+	    column :artist_cut do |purchase|
+    	   "$" + number_with_precision(purchase.artist_cut, :precision => 2, :delimiter => ',')
+       end
+       column :stripe_fee do |purchase|
+    	   "$" + number_with_precision(purchase.stripe_fee, :precision => 2, :delimiter => ',')
+       end
+       column :taxes do |purchase|
+    	   "$" + number_with_precision(purchase.taxes, :precision => 2, :delimiter => ',')
+       end
+       column :charity_cut do |purchase|
+    	   "$" + number_with_precision(purchase.charity_cut, :precision => 2, :delimiter => ',')
+       end
+       column :our_cut do |purchase|
+    	   "$" + number_with_precision(purchase.our_cut, :precision => 2, :delimiter => ',')
+       end
+    
 	    column :description
 	    column :piece_id
 	    column :customer_email
