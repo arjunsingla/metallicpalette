@@ -32,12 +32,12 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :artist_cut %>
+    <%= f.label :artist_cut %><br> <%= render 'pieces/shipping_instructions' %><br>
     <%= f.text_field :artist_cut, class: "form-control", id: "artist_cut" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :total_price %>
+    <%= f.label :total_price %><br> <%= render 'pieces/total_price_instructions' %><br>
     <%= f.text_field :total_price, class: "form-control", id: "total_price", readonly: true %>
   </div>
 
