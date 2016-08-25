@@ -4,17 +4,57 @@
     <h1>Listing Pieces</h1>
   </div>
 
+
+  <!--<div class="button-group filter-button-group">
+    <button data-filter="*">show all</button>
+    <button data-filter=".option1">option1</button>
+    <button data-filter=".option2">option2</button>
+
+  </div>-->
+
+
+  <div class="button-group center" role="group" aria-label="Filter and Sort">
+    <div class="btn-group filter-button-group" role="group">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filter By Genre
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <button data-filter="*">show all</button>
+        <button data-filter=".option1">option1</button>
+        <button data-filter=".option2">option2</button>
+      </ul>
+    </div>  
+    <div class="btn-group sort-by-button-group" role="group">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sort By
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+          <button data-sort-by="original-order">original order</button>
+          <button data-sort-by="price">Price $-$$</button>
+          <button data-sort-by="price" data-descending="true">Price $$-$</button>
+          <button data-sort-by="title">title</button>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+
+
   <div id="pieces" class="transitions-enabled">
     <% @pieces.each do |piece| %>
       <% if piece.status == 1 or (admin_user_signed_in? && piece.status == 2) %>
-        <div class="box panel panel-default">
+        <div class="box panel panel-default <%= piece.genre %>">
           <%= link_to image_tag(piece.image.url(:medium)), piece %>
 
           <div class="panel-body">
-            <%= piece.title %><br/>
+            <div class="title"><%= piece.title %></div>
             <%= piece.genre %><br/>
             <%= piece.size %><br/>
-            <div class ="green">
+            <div class ="green price">
               $<%= number_with_precision(piece.total_price, :precision => 2, :delimiter => ',')%>
             </div>      
             <strong><%=link_to piece.user.name, userapproved_user_path(piece.user) if piece.user %></strong><br/>

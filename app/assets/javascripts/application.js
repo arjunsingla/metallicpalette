@@ -15,4 +15,5 @@
 //= require bootstrap
 //= require masonry/jquery.masonry
 //= require masonry/jquery.imagesloaded.min
+//= require isotope/jquery.isotope
 //= require_tree .
