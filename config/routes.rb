@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   
   root 'pages#home'
+  get 'aboutus' => 'pages#aboutus'
 
   resources :pieces do
     collection do

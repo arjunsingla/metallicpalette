@@ -5,14 +5,6 @@
   </div>
 
 
-  <!--<div class="button-group filter-button-group">
-    <button data-filter="*">show all</button>
-    <button data-filter=".option1">option1</button>
-    <button data-filter=".option2">option2</button>
-
-  </div>-->
-
-
   <div class="button-group center" role="group" aria-label="Filter and Sort">
     <div class="btn-group filter-button-group" role="group">
       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -20,9 +12,10 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <button data-filter="*">show all</button>
-        <button data-filter=".option1">option1</button>
-        <button data-filter=".option2">option2</button>
+        <li><a data-filter="*">Show All</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a data-filter=".option1">Option1</a></li>
+        <li><a data-filter=".option2">Option2</a></li>
       </ul>
     </div>  
     <div class="btn-group sort-by-button-group" role="group">
@@ -31,17 +24,14 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-          <button data-sort-by="original-order">original order</button>
-          <button data-sort-by="price">Price $-$$</button>
-          <button data-sort-by="price" data-descending="true">Price $$-$</button>
-          <button data-sort-by="title">title</button>
+          <li><a data-sort-by="original-order">Original Order</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a data-sort-by="title">Title</a></li>
+          <li><a data-sort-by="price">Price $-$$</a></li>
+          <li><a data-sort-by="price" data-descending="true">Price $$-$</a></li>
       </ul>
     </div>
   </div>
-
-
-
-
 
 
   <div id="pieces" class="transitions-enabled">
