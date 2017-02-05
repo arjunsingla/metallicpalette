@@ -30,7 +30,7 @@
           </div>
 
           <div class="form-group">
-            <%= f.label :address_line_1 %><br />
+            <%= f.label :address_line_1 %><br /> <%= render 'devise/registrations/why_address' %>
             <%= f.text_field :address_line_1, class: "form-control", autofocus: true %>
           </div>
 
