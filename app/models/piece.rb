@@ -15,6 +15,7 @@ class Piece < ActiveRecord::Base
 
 
 	def total_price_validation
+		return if self.total_price == nil
 		return if (self.total_price - ((((self.artist_cut*2.19)+0.3)/(1-0.029))*100).ceil/100.0).abs <= 0.0000000001
 		errors.add(:total_price, "can't be changed")
 	end
