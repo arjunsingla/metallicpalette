@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   
+  scope 'administrators_only' do
+    devise_for :admin_users, ActiveAdmin::Devise.config
+    ActiveAdmin.routes(self)
+    get '/', to: 'admin/dashboard#index'
+  end
+
+
+
   root 'pages#home'
   get 'aboutus' => 'pages#aboutus'
 
