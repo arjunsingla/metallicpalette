@@ -3,6 +3,12 @@ class ChargesController < ApplicationController
 	 
 		piece = Piece.find(params[:piece_id])
 
+		if piece.status != 1
+	   	flash[:error] = 'Too late! Piece has already been bought. You have not been charged.'
+	   	return redirect_to pieces_path 
+	  	end
+
+
 	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
 	    :source  => params[:stripeToken]
