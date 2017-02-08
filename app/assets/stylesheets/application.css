@@ -15,7 +15,15 @@
  *= require_self
  */
 
+/* Logo */
 
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand img {
+  height: 100%;
+  width: auto;
+}
 
 /* Jumbotron Start */
 

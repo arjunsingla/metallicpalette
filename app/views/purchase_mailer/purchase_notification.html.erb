@@ -12,9 +12,9 @@
 <p><%= @purchase.customer_city %>, <%= @purchase.customer_state %>, <%= @purchase.customer_zip_code %></p>
 <p><%= @purchase.customer_country %></p><br/></strong>
 
-<p> 2. After you have shipped, email your customer (you can use this <a href="#">template</a> if you like). Your customer's email is <strong> <%= @purchase.customer_email %></strong>. <strong> Be sure to include the package tracking number in this email. </strong></p>
+<p> 2. After you have shipped, email your customer, telling them that you have shipped their package. Your customer's email is <strong> <%= @purchase.customer_email %></strong>. <strong> Be sure to include the package tracking number in this email. </strong></p>
 
-<p> You can view the purchased piece at this <%= link_to "link", piece_url(@piece, host: 'metallicpalette.com') %>.</p>
+<p> You can view the purchased piece at this <%= link_to "link", piece_url(@piece, host: 'metallicpalette.com') %>. If you sign into the site, and then view the link, you can see the purchase details.</p>
 
 
 <p><strong> You will have one week from today to ship to the customer and send them their email. In this case, you must ship the package and send the email by <%= (@purchase.created_at + 7.days).strftime("%B %d, %Y") %>. The customer must recieve the package by <%= (@purchase.created_at + 21.days).strftime("%B %d, %Y") %>.</strong></p>
