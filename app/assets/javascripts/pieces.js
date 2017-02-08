@@ -61,7 +61,7 @@ $(function() {
       
       getSortData: {
         title: function(itemElem) { 
-          var title = $(itemElem).find('.metadata').data('title');
+          var title = $(itemElem).find('.metadata').data('title') + '';
           return title.toLowerCase();
         },
         artist: function(itemElem) { 
