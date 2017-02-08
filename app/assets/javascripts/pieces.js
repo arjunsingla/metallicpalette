@@ -61,13 +61,16 @@ $(function() {
       
       getSortData: {
         title: function(itemElem) { 
-          var title = $(itemElem).find('.title').text();
-          return title;
+          var title = $(itemElem).find('.metadata').data('title');
+          return title.toLowerCase();
+        },
+        artist: function(itemElem) { 
+          var artist = $(itemElem).find('.metadata').data('artist');
+          return artist;
         },
         price: function(itemElem) {
-          var rawPrice = $(itemElem).find('.price').text();
-          var price = parseFloat(rawPrice.replace(/[$\s]/g, ''));
-          return price;
+          var price = $(itemElem).find('.metadata').data('price');
+          return parseFloat(price);
         }
       },
       masonry: {

@@ -24,9 +24,9 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-          <li><a data-sort-by="original-order">Original Order</a></li>
-          <li role="separator" class="divider"></li>
+          <li><a data-sort-by="original-order">Chronological</a></li>
           <li><a data-sort-by="title">Title</a></li>
+          <li><a data-sort-by="artist">Artist</a></li>
           <li><a data-sort-by="price">Price $-$$</a></li>
           <li><a data-sort-by="price" data-descending="true">Price $$-$</a></li>
       </ul>
@@ -41,10 +41,11 @@
           <%= link_to image_tag(piece.image.url(:medium)), piece %>
 
           <div class="panel-body">
+            <div class="metadata" data-price="<%= piece.total_price %>" data-artist="<%= piece.user.name %>" data-title="<%= piece.title %>"></div>
             <div class="title"><%= piece.title %></div>
             <%= piece.genre %><br/>
             <%= piece.size %><br/>
-            <div class ="green price">
+            <div class="green price">
               $<%= number_with_precision(piece.total_price, :precision => 2, :delimiter => ',')%>
             </div>      
             <strong><%=link_to piece.user.name, userapproved_user_path(piece.user) if piece.user %></strong><br/>
