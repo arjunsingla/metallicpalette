@@ -23,7 +23,7 @@
 
   <div class="form-group">
     <%= f.label :genre %><br>
-    <%= f.select(:genre, options_for_select(['option1','option2'], :selected => @piece.genre), {}, {class: "form-control"}) %>
+    <%= f.select(:genre, options_for_select(['Drawing','Painting', 'Photography', 'Sculpture', 'Multimedia', 'Other'], :selected => @piece.genre), {}, {class: "form-control"}) %>
   </div>
 
   <div class="form-group">

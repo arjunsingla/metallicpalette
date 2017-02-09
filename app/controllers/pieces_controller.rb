@@ -48,7 +48,8 @@ class PiecesController < ApplicationController
     @piece.attributes = piece_params
     @piece.status = 2 if !admin_user_signed_in?
     if @piece.save
-      flash[:notice] = 'Piece update has been successfully requested. It will go live once it is approved.'
+      flash[:notice] = 'Piece update has been successfully requested. It will go live once it is approved.' if !admin_user_signed_in?
+      flash[:notice] = 'Piece has successfully been updated.' if admin_user_signed_in?
       respond_with(@piece)
     else
       render :edit
