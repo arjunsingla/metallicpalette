@@ -38,13 +38,17 @@
 
   <div class="form-group">
     <%= f.label :total_price %><br> <%= render 'pieces/total_price_instructions' %><br>
-    <%= f.text_field :total_price, class: "form-control", id: "total_price", readonly: true %>
+    <%= f.text_field :total_price, class: "form-control", id: "total_price" %>
   </div>
 
   <script>
     $(document).on("change", "#artist_cut", function() {
       var artist_cut = $("#artist_cut").val() || 0;
-      $("#total_price").val(Math.ceil((((artist_cut*2.19)+0.3)/(1-0.029))*100)/100);
+      $("#total_price").val(Math.ceil(((((artist_cut*1.1)/(1-0.095))+0.3)/(1-0.029))*100)/100);
+    });
+    $(document).on("change", "#total_price", function() {
+      var total_price = $("#total_price").val() || 0;
+      $("#artist_cut").val(Math.floor((((total_price*(1-0.029)-0.3)*(1-0.095))/1.1)*100)/100);
     });
   </script>
 

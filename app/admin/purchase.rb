@@ -17,7 +17,6 @@ ActiveAdmin.register Purchase do
 	 filter :artist_cut
 	 filter :stripe_fee
 	 filter :taxes
-	 filter :charity_cut
 	 filter :our_cut
     filter :description
     filter :piece_id
@@ -56,9 +55,6 @@ ActiveAdmin.register Purchase do
        end
        column :taxes do |purchase|
     	   "$" + number_with_precision(purchase.taxes, :precision => 2, :delimiter => ',')
-       end
-       column :charity_cut do |purchase|
-    	   "$" + number_with_precision(purchase.charity_cut, :precision => 2, :delimiter => ',')
        end
        column :our_cut do |purchase|
     	   "$" + number_with_precision(purchase.our_cut, :precision => 2, :delimiter => ',')

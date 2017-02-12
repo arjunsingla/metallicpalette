@@ -8,8 +8,8 @@ class Piece < ActiveRecord::Base
 	validates :image, presence: true
 	validates :genre, presence: true
 	validates :size, presence: true
-	validates :artist_cut, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }, numericality: { greater_than: 0.5, less_than: 443378.86 }
-	validates :total_price, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }, numericality: true
+	validates :artist_cut, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }, numericality: { greater_than: 0.5, less_than: 798867.92 }
+	validates :total_price, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }, numericality: {greater_than: 0.93, less_than: 999999.99}
 	validate :total_price_validation
 	validates :description, presence: true
 
@@ -17,8 +17,10 @@ class Piece < ActiveRecord::Base
 	def total_price_validation
 		return if self.total_price.nil?
 		return if self.artist_cut.nil?
-		return if (self.total_price - ((((self.artist_cut*2.19)+0.3)/(1-0.029))*100).ceil/100.0).abs <= 0.0000000001
-		errors.add(:total_price, "can't be changed")
+		return if self.total_price.to_f.nan?
+		return if self.artist_cut.to_f.nan?
+		return if (self.total_price - (((((self.artist_cut*1.1)/(1-0.095))+0.3)/(1-0.029))*100).ceil/100.0).abs <= 0.0000000001
+		errors.add(:base, "Prices can't be hacked")
 	end
 
 	def total_price_in_cents
@@ -30,15 +32,15 @@ class Piece < ActiveRecord::Base
 	end
 
 	def taxes
-		round(artist_cut * 2 * 0.095)
+		round((self.total_price-self.stripe_fee)* 0.095)
 	end
 
 	def charity_cut
-		round(artist_cut * 2 * 0.4)
+		round(artist_cut * 1.5 * (4/15))
 	end
 
 	def our_cut
-		round(artist_cut * 2 * 0.1)
+		round(artist_cut * 0.1)
 	end
 
 	def round(x)
