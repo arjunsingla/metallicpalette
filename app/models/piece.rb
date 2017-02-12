@@ -35,10 +35,6 @@ class Piece < ActiveRecord::Base
 		round((self.total_price-self.stripe_fee)* 0.095)
 	end
 
-	def charity_cut
-		round(artist_cut * 1.5 * (4/15))
-	end
-
 	def our_cut
 		round(artist_cut * 0.1)
 	end

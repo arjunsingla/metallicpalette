@@ -28,7 +28,6 @@ class ChargesController < ApplicationController
 	 		stripe_fee: piece.stripe_fee,
 	 		taxes: piece.taxes,
 	 		artist_cut: piece.artist_cut,
-	 		charity_cut: piece.charity_cut,
 	 		our_cut: piece.our_cut,
 
 	 		currency: charge.currency,

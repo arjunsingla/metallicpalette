@@ -18,7 +18,8 @@
 /* Logo */
 
 .navbar-brand {
-  padding: 0px;
+  padding: 2px;
+  padding-left: 25px;
 }
 .navbar-brand img {
   height: 100%;
