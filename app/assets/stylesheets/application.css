@@ -125,4 +125,10 @@
 
 
 /* Row Below End */
+.italics h2 {
+	margin-bottom: -2px;
+}
 
+.italics {
+	margin-bottom: 10px;
+}
