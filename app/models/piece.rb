@@ -19,7 +19,7 @@ class Piece < ActiveRecord::Base
 		return if self.artist_cut.nil?
 		return if self.total_price.to_f.nan?
 		return if self.artist_cut.to_f.nan?
-		return if (self.total_price - (((((self.artist_cut*1.1)/(1-0.095))+0.3)/(1-0.029))*100).ceil/100.0).abs <= 0.0000000001
+		return if (self.total_price - (((((self.artist_cut*1.1)/(1-0.095))+0.3)/(1-0.029))*100).ceil/100.0).abs <= 0.01
 		errors.add(:base, "Prices can't be hacked")
 	end
 
