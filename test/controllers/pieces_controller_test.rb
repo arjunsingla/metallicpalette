@@ -18,7 +18,7 @@ class PiecesControllerTest < ActionController::TestCase
 
   test "should create piece" do
     assert_difference('Piece.count') do
-      post :create, piece: { description: @piece.description, genre: @piece.genre, price: @piece.price, size: @piece.size, status: @piece.status, title: @piece.title }
+      post :create, piece: { description: @piece.description, medium: @piece.medium, price: @piece.price, size: @piece.size, status: @piece.status, title: @piece.title }
     end
 
     assert_redirected_to piece_path(assigns(:piece))
@@ -35,7 +35,7 @@ class PiecesControllerTest < ActionController::TestCase
   end
 
   test "should update piece" do
-    patch :update, id: @piece, piece: { description: @piece.description, genre: @piece.genre, price: @piece.price, size: @piece.size, status: @piece.status, title: @piece.title }
+    patch :update, id: @piece, piece: { description: @piece.description, medium: @piece.medium, price: @piece.price, size: @piece.size, status: @piece.status, title: @piece.title }
     assert_redirected_to piece_path(assigns(:piece))
   end
 

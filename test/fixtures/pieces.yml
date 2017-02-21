@@ -2,7 +2,7 @@
 
 one:
   title: MyString
-  genre: MyString
+  medium: MyString
   size: MyString
   price: 9.99
   description: MyString
@@ -10,7 +10,7 @@ one:
 
 two:
   title: MyString
-  genre: MyString
+  medium: MyString
   size: MyString
   price: 9.99
   description: MyString

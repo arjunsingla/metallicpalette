@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212035922) do
+ActiveRecord::Schema.define(version: 20170220234307) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170212035922) do
 
   create_table "pieces", force: :cascade do |t|
     t.string   "title"
-    t.string   "genre"
+    t.string   "medium"
     t.string   "size"
     t.decimal  "artist_cut",         precision: 8, scale: 2
     t.text     "description"

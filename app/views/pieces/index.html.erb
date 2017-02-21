@@ -8,7 +8,7 @@
   <div class="button-group center" role="group" aria-label="Filter and Sort">
     <div class="btn-group filter-button-group" role="group">
       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Filter By Genre
+        Filter By Medium
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
@@ -18,6 +18,7 @@
         <li><a data-filter=".Painting">Painting</a></li>
         <li><a data-filter=".Photography">Photography</a></li>
         <li><a data-filter=".Sculpture">Sculpture</a></li>
+        <li><a data-filter=".Digital">Digital</a></li>
         <li><a data-filter=".Multimedia">Multimedia</a></li>
         <li><a data-filter=".Other">Other</a></li>
 
@@ -42,13 +43,13 @@
   <div id="pieces" class="transitions-enabled">
     <% @pieces.each do |piece| %>
       <% if piece.status == 1 or (admin_user_signed_in? && piece.status == 2) %>
-        <div class="box panel panel-default <%= piece.genre %>">
+        <div class="box panel panel-default <%= piece.medium %>">
           <%= link_to image_tag(piece.image.url(:medium)), piece %>
 
           <div class="panel-body">
             <div class="metadata" data-price="<%= piece.total_price %>" data-artist="<%= piece.user.name %>" data-title="<%= piece.title %>"></div>
             <div class="title"><%= piece.title %></div>
-            <%= piece.genre %><br/>
+            <%= piece.medium %><br/>
             <%= piece.size %><br/>
             <div class="green price">
               $<%= number_with_precision(piece.total_price, :precision => 2, :delimiter => ',')%>

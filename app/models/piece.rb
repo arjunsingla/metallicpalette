@@ -6,7 +6,7 @@ class Piece < ActiveRecord::Base
 
 	validates :title, presence: true
 	validates :image, presence: true
-	validates :genre, presence: true
+	validates :medium, presence: true
 	validates :size, presence: true
 	validates :artist_cut, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }, numericality: { greater_than: 0.5, less_than: 798867.92 }
 	validates :total_price, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }, numericality: {greater_than: 0.93, less_than: 999999.99}
