@@ -57,7 +57,8 @@
             <strong><%=link_to piece.user.name, userapproved_user_path(piece.user) if piece.user %></strong><br/>
             
             <% if admin_user_signed_in? %>
-              <p> Status: <%= piece.status %></p>
+              <br><p><%= piece.user.email if piece.user %>
+              Status: <%= piece.status %></p>
             <% end %>
           </div>
 

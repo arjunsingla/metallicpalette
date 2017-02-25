@@ -16,8 +16,9 @@
 					$<%= number_with_precision(piece.total_price, :precision => 2, :delimiter => ',')%><br/>
 	           <strong><%=link_to piece.user.name, userapproved_user_path(piece.user) if piece.user %></strong><br/>
 					<% if admin_user_signed_in? %>
-		         	<p> Status: <%= piece.status %></p>
-		        	<% end %>		        
+	              <br><p><%= piece.user.email if piece.user %>
+	              Status: <%= piece.status %></p>
+            	<% end %>		        
 		      </div>
 	         <div class="panel-footer">
 		         <p>This piece has already been bought.</p>
