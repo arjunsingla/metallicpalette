@@ -19,7 +19,7 @@
 
 <p><strong> You will have one week from today to ship to the customer and send them their email. In this case, you must ship the package and send the email by <%= (@purchase.created_at + 7.days).strftime("%B %d, %Y") %>. The customer must recieve the package by <%= (@purchase.created_at + 21.days).strftime("%B %d, %Y") %>.</strong></p>
 
-<p>Once the customer recieves the package, we will mail you your cut of the transaction by check. In this case, you will recieve <strong>$<%= number_with_precision(@piece.artist_cut, :precision => 2, :delimiter => ',')%>.</strong> Note that this amount includes your shipping costs. 80% of our profits go towards helping those on the autistic spectrum, and we would like to thank you for this contribution.</p>
+<p>Once the customer recieves the package, we will mail you your cut of the transaction by check. In this case, you will recieve <strong>$<%= number_with_precision(@piece.artist_cut, :precision => 2, :delimiter => ',')%>.</strong> Note that this amount includes your shipping costs. 100% of our profits go towards helping those with learning challenges, and we would like to thank you for this contribution.</p>
 
 <p> We have given your customer your email, and so don't freak out if they email you ;). If you have any questions, shoot us an email at support@metallicpalette.com.</p></br>
 
