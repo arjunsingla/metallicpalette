@@ -1,6 +1,14 @@
 <div class="container">  
- <br/><%= link_to 'Back', pieces_path %><br/>
+ <br/><%= link_to 'All Pieces', pieces_path %><br/>
   <%= link_to 'Requests', requests_pieces_path if admin_user_signed_in? %>
+
+  <% if user_signed_in? %>
+    <%= link_to "Approved", userapproved_user_path(current_user) %><br/>
+    <%= link_to "Requests", userrequests_user_path(current_user) %> <br/>    
+    <%= link_to "Bought", userbought_user_path(current_user) %>
+  <% end %> 
+
+
 
   <div class="row">
     <div class="col-md-offset-2 col-md-8">
