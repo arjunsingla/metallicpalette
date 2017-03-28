@@ -68,7 +68,7 @@ $(function() {
           var artist = $(itemElem).find('.metadata').data('artist');
           return artist;
         },
-        artist: function(itemElem) { 
+        id: function(itemElem) { 
           var id = $(itemElem).find('.metadata').data('id');
           return id;
         },
