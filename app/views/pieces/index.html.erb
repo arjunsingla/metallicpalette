@@ -30,7 +30,7 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-          <li><a data-sort-by="original-order">Chronological</a></li>
+          <li><a data-sort-by="id">Chronological</a></li>
           <li><a data-sort-by="title">Title</a></li>
           <li><a data-sort-by="artist">Artist</a></li>
           <li><a data-sort-by="price">Price $-$$</a></li>
@@ -47,7 +47,7 @@
           <%= link_to image_tag(piece.image.url(:medium)), piece %>
 
           <div class="panel-body">
-            <div class="metadata" data-price="<%= piece.total_price %>" data-artist="<%= piece.user.name %>" data-title="<%= piece.title %>"></div>
+            <div class="metadata" data-price="<%= piece.total_price %>" data-artist="<%= piece.user.name %>" data-title="<%= piece.title %>" data-id="<%= piece.id %>"></div>
             <div class="title"><%= piece.title %></div>
             <%= piece.medium %><br/>
             <%= piece.size %><br/>

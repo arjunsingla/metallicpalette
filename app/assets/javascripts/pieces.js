@@ -68,6 +68,10 @@ $(function() {
           var artist = $(itemElem).find('.metadata').data('artist');
           return artist;
         },
+        artist: function(itemElem) { 
+          var id = $(itemElem).find('.metadata').data('id');
+          return id;
+        },
         price: function(itemElem) {
           var price = $(itemElem).find('.metadata').data('price');
           return parseFloat(price);
