@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'aboutus' => 'pages#aboutus'
   get 'contactus' => 'pages#contactus'
   get'faqs' => 'pages#faqs'
+  get'termsandconditions' => 'pages#termsandconditions'
+
 
   resources :pieces do
     collection do

@@ -15,6 +15,12 @@
  *= require_self
  */
 
+ /* Tabbing */
+
+ .tab {
+ 	margin-left: 20px;
+ }
+
 /* Logo */
 
 .navbar-brand {
