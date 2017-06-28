@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'contactus' => 'pages#contactus'
   get'faqs' => 'pages#faqs'
   get'termsandconditions' => 'pages#termsandconditions'
+  get'howtousethissite' => 'pages#howtousethissite'
+
 
 
   resources :pieces do
