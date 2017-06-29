@@ -14,7 +14,7 @@ class PagesController < ApplicationController
 	def termsandconditions
 	end
 
-	def howtousethissite
+	def gettingstarted
 	end
 end
 
