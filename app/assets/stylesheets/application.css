@@ -15,6 +15,12 @@
  *= require_self
  */
 
+ .home-container img {
+ 	width: 100%;
+ }
+
+
+
  /* Tabbing */
 
  .tab {
