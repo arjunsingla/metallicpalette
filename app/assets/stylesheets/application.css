@@ -104,7 +104,11 @@
 
 /* Home End */
 
+<<<<<<< HEAD
 
+=======
+/* Row Below End */
+>>>>>>> parent of 7abd6e1... Changed text on a few pages, fixed navbar overflow bug
 .italics h2 {
 	margin-bottom: -2px;
 }
