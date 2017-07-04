@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
 
-  root 'pieces#index'
+  root 'pages#home'
   get 'aboutus' => 'pages#aboutus'
   get 'contactus' => 'pages#contactus'
   get'faqs' => 'pages#faqs'
