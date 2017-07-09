@@ -15,6 +15,61 @@
  *= require_self
  */
 
+ /* Home Start */
+
+.navbar {
+	margin-bottom: 0px;
+	border-radius: 0px;
+}
+
+.btn-home {
+   padding: 12px 22px;
+   margin: 10px;
+   font-size: 25px;
+   line-height: normal;
+   -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+           border-radius: 8px;
+}
+
+.homepage-tagline {
+	font-size: 300%;
+}
+ .seo-tagline {
+	font-size: 150%;
+}
+
+.hero-section {
+  background: url("https://s3.amazonaws.com/metallicpalette/homebackground.jpg") 50% no-repeat;
+  background-size: cover;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: white;
+ }
+
+
+@media (max-width: 449px) {
+	.btn-home {
+		display: block;
+	}
+
+	.home-button-group {
+		margin-bottom: -50px;
+		margin-top: 50px;
+	}
+}
+
+
+  @media (min-width: 1000px) {
+	.hero-section {
+		padding-top: 50px;
+	}
+}
+
+/* Home End */
+
+
  /* Tabbing */
 
  .tab {
@@ -93,14 +148,8 @@
 }
 /* Home Start */
 
-.navbar {
-	margin-bottom: 0px;
-	border-radius: 0px;
-}
 
-.container-home img {
- 	width: 100%;
- }
+
 
 /* Home End */
 
